@@ -1,0 +1,160 @@
+
+@charset "UTF-8";
+
+     /* FONTE TEXTO */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');  
+
+    /* FONTE PRINCIPAL */
+@font-face {   
+    font-family:'GeosansLight';
+    src: url(../fontes/GeosansLight.ttf)
+         format('truetype');
+}
+
+    /* FONTE STYLE */
+@font-face {
+    font-family: 'CinzelDecorative';
+    src: url(../fontes/CinzelDecorative-Regular.ttf)
+         format('truetype');
+}
+
+:root {
+    
+    --cor-principal:  #1C45EB; 
+    --cor-secundaria: #0428BB;
+    --cor-rodape: #01092D;
+   
+    --font-style: 'CinzelDecorative';
+    --font-principal: 'GeosansLight';
+    --font-texto: 'Open Sans', sans-serif;
+}
+
+.box-primario, body, html{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+}
+
+.box-secundario, .box-terciario {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--cor-principal);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.484);
+    border-radius: 12px 12px 0px 0px;
+    height: 180px;
+    width: 85vw;
+}
+
+.box-secundario {
+    margin-top: 50px;
+}
+
+img {
+    height: 110px;
+    width: 100px;
+    margin-top: 30px;
+}
+
+.photo-litle {
+    height: 70px;
+    width: 70px;
+    margin-top: 30px;
+}
+
+h1 {
+    font: bold 1.3em var(--font-style);
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.368);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.box-login, .box-novo-usuario, .box-nova-senha {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.484);
+    background-color:white;
+    border-radius: 0px 0px 12px 12px;
+    height: 50vh;
+    width: 85vw;
+}
+
+.box-login {
+    height: 55vh;
+    padding-bottom: 15px;
+}
+
+h2 {
+    font: bold 1.8em var(--font-principal);
+    color: var(--cor-principal);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.box-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0px 0px 12px 12px;
+    background-color:white;
+    height: 45vh;
+    width: 90vw;
+}
+
+.box-input {
+    background-color: white;
+    font: 1em Arial;
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.338);
+    padding-left: 10px;
+    height: 35px;
+    width: 275px;
+}
+                        /* PSEUDO CLASSE NOS INPUT */
+.box-input:focus {    
+    outline: none;
+}
+
+.box-button {
+    background-color: var(--cor-principal);
+    font: bold 1.3em var(--font-principal);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.489);
+    border: none;
+    padding: 10px;
+    height: 52px;
+    width: 40%;
+}
+
+.link-acesso, .link-voltar {
+    font: bold 1.1em var(--font-texto);
+    color: var(--cor-principal);
+    text-decoration: none;
+}
+
+            /* ESTILO DO FORMULARIOO DE NOVO USUARIO */
+
+.box-terciario {
+    margin-top: 30px;
+}
+
+.box-novo-usuario {
+    height: 600px;
+    margin-bottom: 30px;
+}
+
+.link-voltar {
+    margin-bottom: 15px;
+}

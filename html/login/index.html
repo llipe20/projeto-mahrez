@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
+    <link rel="stylesheet" href="../../css/style-mobile/login.css" media="screen and (max-width: 800px)">
+
+    <title>Login</title>
+</head>
+<body>
+    <div class="box-primario">
+        <!-- CAIXA DE APRESENTAÇÃO  -->
+        <div class="box-secundario">
+            <img src="../imagem/login.png" alt="lock">
+
+            <h1>Sistema de ponto de trabalho</h1>
+        </div>
+
+        <!-- CAIXA DE LOGIN -->
+            <form class="box-login" action="../../php/login/validacao.php" method="POST">
+                
+                <h2>Faça seu login</h2>
+
+                <input class="box-input" type="email" name="email" placeholder="e-mail" required>
+            
+                <input class="box-input"  type="password" name="senha" placeholder="password">
+            
+                <a class="link-acesso" href="nova-senha.html">Esqueceu a senha?</a>
+            
+                <input class="box-button" type="submit" name="button-entrar" value="Entrar">
+
+                <a class="link-acesso" href="nova-conta.html">Criar uma conta</a>  
+            </form>
+        </div>
+    </div>
+</body>
+</html>

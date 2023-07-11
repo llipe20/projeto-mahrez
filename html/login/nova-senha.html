@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
+    <link rel="stylesheet" href="../../css/style-mobile/login.css" media="screen and (max-width: 800px)">
+
+    <title>Nova senha</title>
+</head>
+<body>
+    <div class="box-primario">
+
+        <!-- CAIXA DE APRESENTAÇÃO  -->
+        <div class="box-secundario">
+            <img class="photo-litle" src="../imagem/password.png" alt="password">
+
+            <h1>Redefinir password</h1>
+        </div>
+
+        <!-- CAIXA DE LOGIN -->
+            <form class="box-nova-senha" action="login.php" method="POST">
+                
+                <h2>Nova senha</h2>
+            
+                <input class="box-input"  type="password" name="novo-password" placeholder="new password">
+
+                <input class="box-input"  type="password" name="confirm-password" placeholder="confirm password">
+            
+                <input class="box-button" type="submit" name="button" value="Confirmar">
+
+                <a class="link-voltar" href="index.html">Voltar</a>   
+            </form>
+        </div>
+    </div>
+</body>
+</html>
