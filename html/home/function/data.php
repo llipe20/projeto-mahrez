@@ -175,7 +175,7 @@
 
         $mes_atual = intval(date('m'));
 
-        $sql = "SELECT cod,dia FROM folha WHERE usuario = $id_usuario AND MONTH(STR_TO_DATE(dia, '%Y-%m-%d')) = '$mes_atual'";
+        $sql = "SELECT cod,dia FROM folha WHERE usuario = $id_usuario AND MONTH(STR_TO_DATE(dia, '%Y-%m-%d')) = '$mes_atual' ORDER BY dia";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0)
@@ -184,7 +184,10 @@
             
                 $dia = date('d', strtotime($row['dia']));
 
-                echo '<a class="button-dia" href="../function/modificar-ponto.php?cod=' . $row['cod'] . '">Dia '. $dia . '</a>';
+                echo '<div class="box-button-dia">
+                        <button class="button-dia" onclick="window.location.href = \'../function/modificar-ponto.php?cod=' . $row['cod'] . '\'">Dia ' . $dia . '</button>
+                      </div>';
+
             }
         }
     }

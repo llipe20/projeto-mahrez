@@ -30,7 +30,7 @@
 }
 
         /* CAIXA PRINCIPAL */
-.box-principal, body, html{
+.box-principal, body, html, .box-principal-hora-extra {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -121,9 +121,12 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 
 .box-conteudo-dia {
     flex-flow: row wrap;
-    align-content: space-evenly;
+    align-content: flex-start;
+    column-gap: 3px;
+    row-gap: 18px;
     justify-content: center;
-    height: 560px;
+   
+    height: 510px;
 
 }
 
@@ -266,11 +269,19 @@ span {
     width: 35%;
 }
 
+.box-button-dia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    width: 65px;
+}
+
 .button-dia {
     border-radius: 50%;
-    margin: 15px;
-    height: 50px;
-    width: 50px;
+    padding: 5px;
+    height: 55px;
+    width: 55px;
 }
 
 .link-acesso, .link-voltar {
@@ -281,5 +292,5 @@ span {
 }
 
 #voltar-home-modponto {
-    margin-top: 100px;
+    margin-top: 35px;
 }

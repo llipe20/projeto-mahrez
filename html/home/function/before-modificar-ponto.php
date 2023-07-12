@@ -18,6 +18,9 @@
 
         <div class="box-conteudo-dia">
             <?php catar_registro();?>
+            <div class="box-button-dia">
+                <button class="button-dia" onclick="a()">Dia 30</button>
+            </div>
         </div>
 
         <a id="voltar-home-modponto" class="link-voltar" href="../home.php">Voltar</a>
