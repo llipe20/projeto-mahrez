@@ -21,7 +21,7 @@
                 
                 <!--DATA DO PONTO -->
                 <div class="box-data">
-                    <?php include_once './data.php'; date_default_timezone_set('America/Sao_Paulo'); echo '<h2 class="data">'.semana(dia_semana(date('y-m-d'))).' - '.date('d . m').'</h2>';?>
+                    <?php include_once './data.php'; date_default_timezone_set('America/Sao_Paulo'); echo '<h2 class="data">'.semana(dia_semana(date('y-m-d H:m:s'))).' - '.date('d . m').'</h2>';?>
                 </div>
 
                 <!-- HORA DE ENTRADA -->
