@@ -66,7 +66,7 @@
             <?php catador_hora_extras($_SESSION['id']);?>
         </div>
 
-        <a class="link-voltar" href="../../home/home.php">Voltar</a>
+        <a id="voltar-hora-extra" class="link-voltar" href="../../home/home.php">Voltar</a>
     </div>
 </body>
 </html>
