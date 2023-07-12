@@ -1,6 +1,3 @@
-<?php
-session_start();
-echo '
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,27 +18,27 @@ echo '
 
             <div class="box-text">
                 <label for="nome">User name:</label>
-                <input class="input-texto" type="text" name="nome" value="'. $_SESSION['usuario'].'">
+                <input class="input-texto" type="text" name="nome" value="<?php session_start(); echo $_SESSION['usuario']; ?>">
             </div>
 
             <div class="box-text">
                 <label for="email">E-mail:</label>
-                <input class="input-texto" type="email" name="email" value="'.$_SESSION['email'].'">
+                <input class="input-texto" type="email" name="email" value="<?php echo $_SESSION['email']; ?>">
             </div>
 
             <div class="box-text">
                 <label for="valor-hora">Valor da hora:</label>
-                <input class="input-time" type="number" step="0.1" name="valor-hora" value="'.$_SESSION['valorHora'].'">
+                <input class="input-time" type="number" step="0.1" name="valor-hora" value="<?php echo $_SESSION['valorHora']; ?>">
             </div>
 
             <div class="box-text">
                 <label for="senha">Password:</label>
-                <input class="input-texto" type="password" name="senha" value="'.$_SESSION['email'].'">
+                <input class="input-texto" type="password" name="senha" value="<?php echo $_SESSION['senha']; ?>">
             </div>
 
             <div class="box-tet">
             <label for="confirm-password">Confirm pass:</label>
-            <input class="input-texto"  type="password" name="confirm-password" value="'.$_SESSION['email'].'">
+            <input class="input-texto"  type="password" name="confirm-password" value="<?php echo $_SESSION['senha']; ?>">
             </div>
 
             <div class="box-button">
@@ -53,4 +50,4 @@ echo '
     </div>
 </body>
 </html>';
-?>
+
