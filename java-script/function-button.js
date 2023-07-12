@@ -51,7 +51,7 @@ function extrato()
 
     // IR PARA PAG DE CONFIGURAÇÕES
 
-function settings() 
+function configuracao() 
 {
     window.location.href = "../home/function/settings.php";
 }

@@ -55,7 +55,7 @@
                 <p class="title-function">Extrato</p>
             </button>
 
-            <button class="function" onclick="settings()">
+            <button class="function" onclick="configuracao()">
                 <img class="photo-function" src="../imagem/settings.png" alt="settings">
                 <p class="title-function">Configurações</p>
             </button>
