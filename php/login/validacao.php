@@ -38,7 +38,7 @@
                     $_SESSION['logado'] = true;
                     $_SESSION['id'] = $dados['login'];
                     $_SESSION['usuario'] = $dados['nome'];
-                    $_SESISON['email'] = $dados['email'];
+                    $_SESSION['email'] = $dados['email'];
                     $_SESSION['senha'] = $dados['senha'];
                     $_SESSION['valorHora'] = $dados['valorHora'];
 

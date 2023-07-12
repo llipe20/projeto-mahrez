@@ -53,5 +53,5 @@ function extrato()
 
 function settings() 
 {
-    window.location.href = "../home/function/settings.html";
+    window.location.href = "../home/function/settings.php";
 }

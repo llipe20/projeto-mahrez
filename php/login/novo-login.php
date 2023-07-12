@@ -1,8 +1,6 @@
 
 <?php   // COD DE TRATAMENTO PARA NOVO USUÁRIOS; 
 
-use function PHPSTORM_META\elementType;
-
     include_once "../conexao.php";
 
     if (isset($_POST['button-salvar'])) 
