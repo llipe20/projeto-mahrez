@@ -27,25 +27,28 @@
                     $data_banco = date_format($data, ' d . m');
 
                     echo 
-                    '<header class="box-header-hora-extra">
-                        <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
-                    </header>
-            
-                    <div class="box-conteudo-hora-extra">
-            
-                        <p class="p-hora-extra">Hora de entrada: '.$dados['entrada'].'</p>
-            
-                        <p class="p-hora-extra">Hora de entrada: '.$dados['saida'].'</p>
-            
-                        <p class="p-hora-extra">Atividade: '.$dados['atividade'].'</p>
-            
-                        <p class="p-hora-extra">Equipe: '.$dados['equipe'].'</p>
-            
-                        <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
+                    '
+                    <div class="box-box-hora-extra">
+                        <header class="box-header-hora-extra">
+                            <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
+                        </header>
+                
+                        <div class="box-conteudo-hora-extra">
+                
+                            <p class="p-hora-extra">Hora de entrada: '.$dados['entrada'].'</p>
+                
+                            <p class="p-hora-extra">Hora de entrada: '.$dados['saida'].'</p>
+                
+                            <p class="p-hora-extra">Atividade: '.$dados['atividade'].'</p>
+                
+                            <p class="p-hora-extra">Equipe: '.$dados['equipe'].'</p>
+                
+                            <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
 
-                        <p class="p-hora-extra">Horas ganha: '.$dados['horas'].'</p>
-            
+                            <p class="p-hora-extra">Horas ganha: '.$dados['horas'].'</p>
+                        </div>
                     </div>';
+                   
 
                     $tot_horas += $dados['horas'];
                 }
@@ -54,7 +57,7 @@
             }
         }
     ?>
-    <div class="box-principal" id="box-principal-hora-extra">
+    <div class="box-principal-hora-extra">
         <div class="box-header" id="box-fixo">
             <h2 class="titulo"><?php session_start(); echo 'Total de horas extras: '.$_SESSION['totHoras']?></h2>
         </div>

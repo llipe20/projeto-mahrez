@@ -30,12 +30,14 @@
 }
 
         /* CAIXA PRINCIPAL */
-.box-principal, body, html, .box-principal-hora-extra {
+.box-principal, body, html, .box-principal-hora-extra, .box-principal-hora-extra {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color:white;
+    margin: 0px;
+    padding: 0px;
 }
 
 .box-principal {
@@ -43,7 +45,11 @@
 }
 
 .box-principal-hora-extra {
-    justify-content: space-between;
+    margin: 0px;
+    padding: 0px;
+    justify-content: flex-start;
+    row-gap: 10px;
+
 }
 
        /* HEADER */
@@ -61,9 +67,8 @@
 
 #box-fixo {  /* CAIXA DE TOT HORA NA PAG DE HORA EXTRA*/
     width: 100vw;
-    height: 70px;
+    height: 90px;
     margin: 0px;
-    position: fixed;
 }
 
 .box-month {
@@ -114,9 +119,23 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     height: 550px;
 }
 
+.box-box-hora-extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 520px;
+    width: 88vw;
+}
+
 .box-main-pai {  /* CAIXA que organiza as caxias das horas extras*/
     justify-content: space-evenly;
-    height: none;
+    box-shadow: none;
+    align-items: center;
+    row-gap: 5px;
+    padding: 0px;
+    width: 90vw;
+    height: 3900px;
 }
 
 .box-conteudo-dia {
@@ -125,13 +144,12 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     column-gap: 3px;
     row-gap: 18px;
     justify-content: center;
-   
     height: 510px;
-
 }
 
 .box-conteudo-hora-extra {   /* HORA EXTRA */
-    height: none;
+    height: 520px;
+    padding: 15px 0px;
 }
 
 .box-conteudo-extrato {    /* EXTRATO */
