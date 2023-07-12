@@ -32,7 +32,7 @@ function modificar_ponto()
 
 function consultar_folha() 
 {
-    window.location.href = "../home/function/consultar-ponto.html";
+    window.location.href = "../home/function/consultar-folha.php";
 }
 
     // IR PARA PAG DE HORAS EXTRAS

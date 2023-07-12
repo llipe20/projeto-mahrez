@@ -12,16 +12,28 @@
     <div class="box-principal">
         <header class="box-header">
             <img src="../../imagem/dollar-coin.png" alt="dolar_coin">
-            <h2 class="titulo">Domingo - 02/07</h2> <!-- Retorno PHP-->
+            <?php date_default_timezone_set('America/Sao_Paulo'); echo '<h2 class="titulo">'.detector_mes(date('m')).'</h2>';?>
         </header>
 
         <div class="box-conteudo-extrato">
-            <p class="p-extrato">Horas Extras: <?php echo calcular_hora_extra($_SESSION['id']);?></p>
-            <p class="p-extrato">Valor das horas: <?php echo "393,50"?></p>
-            <p class="p-extrato">Salário: <?php echo "979,88"?></p>
+
+            <!-- Mostra A QUANT DE HORAS -->
+            <p class="p-extrato">Horas Extras: <?php echo quant_hora_extra($_SESSION['id']);?></p>
+
+           <!-- Mostra O VALOR DAS HORAS EM R$ -->
+            <p class="p-extrato">Valor das horas: <?php echo calcular_hora_extra(quant_hora_extra($_SESSION['id']));?></p>
+
+           <!-- Mostra A META MENSAL DE HORA  -->
+            <p class="p-extrato">Meta mensal: <?php echo calcular_salario($_SESSION['id'])?></p>
+
+            <!-- Mostra O SALÁRIO DIA 07 -->
+            <p class="p-extrato">Salário: <?php $salario = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * ($_SESSION['valorMeta'] - 110) - 105.6); echo number_format($salario, 2, ',', '.')?></p>
+
+            <!-- Mostra O SALÁRIO COMPLETO -->
+            <p class="p-extrato">Salário Completo: <?php $salario = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * $_SESSION['valorMeta']) - 105.6; echo number_format($salario, 2, ',', '.')?></p>
             
             <div class="box-voltar">
-                 <a class="link-voltar" href="../../home/home.html">Voltar</a>
+                 <a class="link-voltar" href="../../home/home.php">Voltar</a>
             </div>
            
         </div>

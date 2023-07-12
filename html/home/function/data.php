@@ -9,20 +9,71 @@
 
 <?php // FUNÇÕES ESPÉCIFICCAS PARA OS CODIGOS;
 
-
-    // Calcula todas as horas extras feita no fez;
-    function calcular_hora_extra($id_usuario)
+    // Calcula todas as 220 horas foram feita no mês;
+    function calcular_salario($id_usuario)
     {
-        include_once '../../../php/conexao.php';
-        include_once './data.php';
+        include '../../../php/conexao.php';
+
+        $sql = "SELECT horas FROM folha WHERE usuario = $id_usuario AND (horas = 9 OR horas = 8) ORDER BY dia;";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            $meta = 0;
+
+            while ($dados = mysqli_fetch_assoc($result)) 
+            {
+                $meta += $dados['horas'];
+            }
+            
+            $_SESSION['valorMeta'] = $meta;
+            
+            if ($meta < 220)
+            {
+                $valor = 220 - $meta;
+                return 'Faltam '.$valor.' horas';
+            }
+            elseif ($meta > 220)
+            {
+                $valor = $meta - 220;
+                return 'Ultrapassou '.$valor.' horas';
+            }
+            else
+            {
+                return 'Alcançada';
+            }
+        }
+    }
+
+
+
+
+
+    // FUNÇÃO que converte hora em dinheiro;
+    function calcular_hora_extra($hora) 
+    {   
+        $valor = $hora * $_SESSION['valorHora'];
+        $_SESSION['valorExtra'] = $valor;
+        $reais = number_format($valor, 2, ',', '.');
+
+        return $reais;
+    }
+
+
+
+    // Calcula todas as horas extras feita no mês;
+    function quant_hora_extra($id_usuario)
+    {
+        include '../../../php/conexao.php';
 
         $sql = "SELECT saida, dia, horas FROM folha WHERE usuario = $id_usuario AND (horas > 9 OR horas < 8) ORDER BY dia;";
         $result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) 
+        {
             $tot_extra = 0;
 
-            while ($dados = mysqli_fetch_assoc($result)) {
+            while ($dados = mysqli_fetch_assoc($result)) 
+            {
                 $dia_semana = dia_semana($dados['dia']);
 
                 if ($dia_semana != 5 && $dia_semana != 6 && $dia_semana != 7) 
@@ -116,6 +167,8 @@
     function catar_registro()
     {
         session_start();
+        date_default_timezone_set('America/Sao_Paulo');
+
         $id_usuario = $_SESSION['id'];
 
         include '../../../php/conexao.php';
@@ -169,6 +222,7 @@
     function ponto_automatico() // FUNÇÃO DE ADD PONTO AUTOMATICAMENTE
     {
         include '../../../php/conexao.php';
+        date_default_timezone_set('America/Sao_Paulo');
 
         $sql = "SELECT login FROM conta";
         $result = mysqli_query($conn, $sql);
