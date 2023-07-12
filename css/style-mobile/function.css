@@ -97,7 +97,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 }
 
        /* CAIXA DO CONTÉUDO */
-.box-conteudo, .box-conteudo-hora-extra, .box-conteudo-extrato, .box-conteudo-dia, .box-main-pai {
+.box-conteudo, .box-conteudo-hora-extra, .box-conteudo-extrato, .box-conteudo-dia, .box-main-pai, .box-conteudo-set {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -108,6 +108,10 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     padding-top: 25px;
     height: 690px;
     width: 85vw;
+}
+
+.box-conteudo-set {
+    height: 550px;
 }
 
 .box-main-pai {  /* CAIXA que organiza as caxias das horas extras*/
@@ -124,11 +128,13 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 }
 
 .box-conteudo-hora-extra {   /* HORA EXTRA */
-    height: 450px;
+    height: none;
 }
 
 .box-conteudo-extrato {    /* EXTRATO */
-    height: 250px;
+    height: 400px;
+    justify-content: space-evenly;
+    padding: 10px 0px 15px 0px;
 }
 
         /* caixa dos input TIME */
@@ -178,14 +184,19 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     font-size: 1.2em;
 }
 
-label, .p-hora-extra, .p-extrato, .data {
-    font: bold 1.15em var(--font-principal);
+label, .p-hora-extra, .p-extrato, .data, span {
+    font: bold 1.1em var(--font-texto);
     color: var(--cor-principal);
     margin: 0px 20px 0px 40px;
 }
 
+span {
+    margin-left: 0px;
+}
+
 .p-extrato {
-    margin: 20px;
+   font-weight: bolder;
+   color: #0528b3;
 }
 
 .data {

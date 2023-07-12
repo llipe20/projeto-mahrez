@@ -17,7 +17,7 @@ echo '
             <h1>Veja suas informações</h1>
         </div>
         <!-- CAIXA DE INFORMAÇÕES -->
-        <form class="box-conteudo" action="../../../php/home/function/configuracao.php" method="POST">
+        <form class="box-conteudo-set" action="../../../php/home/function/configuracao.php" method="POST">
 
             <div class="box-text">
                 <label for="nome">User name:</label>

@@ -18,19 +18,32 @@
         <div class="box-conteudo-extrato">
 
             <!-- Mostra A QUANT DE HORAS -->
-            <p class="p-extrato">Horas Extras: <?php echo quant_hora_extra($_SESSION['id']);?></p>
+            <div class="box-text">
+                <p class="p-extrato">Horas Extras:</p><span><?php echo quant_hora_extra($_SESSION['id']);?></span>
+            </div>
+            
 
            <!-- Mostra O VALOR DAS HORAS EM R$ -->
-            <p class="p-extrato">Valor das horas: <?php echo calcular_hora_extra(quant_hora_extra($_SESSION['id']));?></p>
+           <div class="box-text">
+                <p class="p-extrato">Valor das horas: </p><span><?php echo calcular_hora_extra(quant_hora_extra($_SESSION['id']));?></span>
+            </div>
+
 
            <!-- Mostra A META MENSAL DE HORA  -->
-            <p class="p-extrato">Meta mensal: <?php echo calcular_salario($_SESSION['id'])?></p>
+           <div class="box-text">
+                <p class="p-extrato">Meta mensal: </p><span><?php echo calcular_salario($_SESSION['id'])?></span>
+           </div>
 
             <!-- Mostra O SALÁRIO DIA 07 -->
-            <p class="p-extrato">Salário: <?php $salario = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * ($_SESSION['valorMeta'] - 110) - 105.6); echo number_format($salario, 2, ',', '.')?></p>
+            <div class="box-text">
+                <p class="p-extrato">Salário: </p><span><?php $salario = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * ($_SESSION['valorMeta'] - 110) - 105.6); echo number_format($salario, 2, ',', '.')?></span>
+            </div>
+
 
             <!-- Mostra O SALÁRIO COMPLETO -->
-            <p class="p-extrato">Salário Completo: <?php $salario = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * $_SESSION['valorMeta']) - 105.6; echo number_format($salario, 2, ',', '.')?></p>
+            <div class="box-text">
+                <p class="p-extrato">Salário Completo: </p><span><?php $salario = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * $_SESSION['valorMeta']) - 105.6; echo number_format($salario, 2, ',', '.')?></span>
+            </div>
             
             <div class="box-voltar">
                  <a class="link-voltar" href="../../home/home.php">Voltar</a>
