@@ -54,7 +54,7 @@
             }
         }
     ?>
-    <div class="box-principal">
+    <div class="box-principal" id="box-principal-hora-extra">
         <div class="box-header" id="box-fixo">
             <h2 class="titulo"><?php session_start(); echo 'Total de horas extras: '.$_SESSION['totHoras']?></h2>
         </div>

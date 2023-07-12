@@ -110,7 +110,16 @@ h2 {
     width: 90vw;
 }
 
-.box-input {
+.box-text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 5px 5px 5px 5px;
+    height: 50px;
+    width: 70vw;
+}
+
+.box-input, .box-input-set {
     background-color: white;
     font: 1em Arial;
     box-shadow: none;
@@ -120,9 +129,21 @@ h2 {
     height: 35px;
     width: 275px;
 }
+
+
+.box-input-set {
+    width: 200px;
+}
+
                         /* PSEUDO CLASSE NOS INPUT */
 .box-input:focus {    
     outline: none;
+}
+
+label {
+    font: bold 1.15em var(--font-principal);
+    color: var(--cor-principal);
+    margin: 0px 20px 0px 40px;
 }
 
 .box-button {
