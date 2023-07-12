@@ -27,24 +27,23 @@
                     $data_banco = date_format($data, ' d . m');
 
                     echo 
-                    '<header class="box-header">
-                        <img src="../../imagem/dollar-coin.png" alt="dolar_coin">
+                    '<header class="box-header-hora-extra">
                         <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
                     </header>
             
-                    <div class="box-conteudo-extrato">
+                    <div class="box-conteudo-hora-extra">
             
-                        <p class="p-extrato">Hora de entrada: '.$dados['entrada'].'</p>
+                        <p class="p-hora-extra">Hora de entrada: '.$dados['entrada'].'</p>
             
-                        <p class="p-extrato">Hora de entrada: '.$dados['saida'].'</p>
+                        <p class="p-hora-extra">Hora de entrada: '.$dados['saida'].'</p>
             
-                        <p class="p-extrato">Atividade: '.$dados['atividade'].'</p>
+                        <p class="p-hora-extra">Atividade: '.$dados['atividade'].'</p>
             
-                        <p class="p-extrato">Equipe: '.$dados['equipe'].'</p>
+                        <p class="p-hora-extra">Equipe: '.$dados['equipe'].'</p>
             
-                        <p class="p-extrato">Descrição: '.$dados['descricao'].'</p>
+                        <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
 
-                        <p class="p-extrato">Horas ganha: '.$dados['horas'].'</p>
+                        <p class="p-hora-extra">Horas ganha: '.$dados['horas'].'</p>
             
                     </div>';
 
@@ -56,11 +55,11 @@
         }
     ?>
     <div class="box-principal">
-        <div class="header-fixa">
-            <h2 class=""><?php session_start(); echo 'Total de horas extras: '.$_SESSION['totHoras']?></h2>
+        <div class="box-header" id="box-fixo">
+            <h2 class="titulo"><?php session_start(); echo 'Total de horas extras: '.$_SESSION['totHoras']?></h2>
         </div>
 
-        <div class="">
+        <div class="box-main-pai">
             <?php catador_hora_extras($_SESSION['id']);?>
         </div>
 
