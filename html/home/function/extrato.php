@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
-    <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
+    <?php echo '<link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
+    <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">';?>
     <title>Extrato - Mahrez</title>
 </head>
 <body>

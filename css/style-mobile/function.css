@@ -80,11 +80,16 @@ img {
     margin-top: 10px;
 }
 
-h1, .titulo, #month {
+h1, h2, .titulo, #month, .sub-titulo-set {
     font: bold 1.5em var(--font-principal);
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.368);
     color: white;
     text-align: center;
+}
+
+.sub-titulo-set {
+    color: var(--cor-principal);
+    margin: auto ;
 }
 
 #month { /*TITULO DA PAG DE ESCOLHER DATA PARA MODIFICAR*/
@@ -189,7 +194,7 @@ label, .p-hora-extra, .p-extrato, .data {
 }
 
         /* input TEXT */
-.input-text {
+.input-text, .input-texto {
     height: 30px;
     width: 60vw;
     padding-left: 10px;
@@ -197,6 +202,11 @@ label, .p-hora-extra, .p-extrato, .data {
     border-bottom: 2px solid rgba(0, 0, 0, 0.338);
     font-size: 1em;
 }
+
+.input-texto {
+    width: 45vw;
+}
+
 
         /* input TEXTAREA */
 .input-textarea-equipe, .input-textarea-desc {
