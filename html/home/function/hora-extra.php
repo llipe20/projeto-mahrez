@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
+    
     <title>Hora Extra - Mahrez</title>
+
 </head>
 <body>
+    <script>
+        function toggleContent(iteracao) 
+        {
+            var conteudo = document.getElementById('conteudo-' + iteracao);
+            var header = document.getElementById('header-' + iteracao);
+
+            if (conteudo.style.display == 'flex') 
+            {
+                conteudo.style.display = 'none';
+                header.style.borderRadius = '12px';
+            } 
+            else 
+            {
+                header.style.borderRadius = '12px 12px 0px 0px';
+                conteudo.style.height = '450px';
+                conteudo.style.display = 'flex';
+            }
+        }
+    </script>
     <?php 
         function catador_hora_extras()
         {
@@ -42,14 +65,15 @@
                     {
                         $hora_extra = $dados['horas'];
                     }
-                    
+
                     echo '
                     <div class="box-box-hora-extra">
-                        <header class="box-header-hora-extra">
+                        <header id="header-'.$dados['cod'].'" class="box-header-hora-extra">
                             <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
+                            <span class="material-icons">expand_more</span>
                         </header>
                 
-                        <div class="box-conteudo-hora-extra">
+                        <div id="conteudo-'.$dados['cod'].'" class="box-conteudo-hora-extra">
                 
                             <p class="p-hora-extra">Hora de entrada: '.$dados['entrada'].'</p>
                 
@@ -84,5 +108,17 @@
 
         <a id="voltar-hora-extra" class="link-voltar" href="../../home/home.php">Voltar</a>
     </div>
+
+    <script>
+        var headers = document.querySelectorAll('.box-header-hora-extra');
+        headers.forEach(function(header) 
+            {
+                var id = header.getAttribute('id').replace('header-', '');
+                header.addEventListener('click', function() 
+                {
+                    toggleContent(id);
+                });
+            });
+    </script>
 </body>
 </html>

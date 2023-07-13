@@ -10,8 +10,6 @@
     // Define o fuso horário para Brasília
 date_default_timezone_set('America/Sao_Paulo');
         echo date('d-m-y H:m:s');
-
-        6E.ZephP8PQ*u#j senha da 000hosnet
     ?>
 </body>
 </html>

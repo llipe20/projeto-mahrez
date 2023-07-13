@@ -4,6 +4,15 @@
 
     // VAI PARA UMA PAG PHP QUE DESTROI AS SESSÕES E DPS PARA PAG DE LOGIN
 
+function open()
+{
+    var conteudo = document.getElementsByClassName('box-conteudo-hora-extra');
+    conteudo.style.display = 'flex';
+
+    var header = document.getElementsByClassName('box-header-hora-extra');
+    header.style.borderRadius = '12px 12px 0px 0px';
+}
+
 function sair_login() 
 {
     window.location.href = "../../php/home/logado-sair.php";
@@ -55,3 +64,4 @@ function configuracao()
 {
     window.location.href = "../home/function/settings.php";
 }
+

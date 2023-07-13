@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
      /* FONTE TEXTO */
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');  
 
     /* FONTE PRINCIPAL */
@@ -81,6 +80,7 @@
     width: 100vw;
     height: 90px;
     margin: 0px;
+    border-radius: none;
 }
 
 .box-month {
@@ -89,6 +89,10 @@
 
 .box-header-hora-extra {  /* HORA EXTRA */
     height: 120px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0px;
+    border-radius: 12px;
 }
 
 img {
@@ -136,7 +140,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 510px;
+    height: auto;
     width: 88vw;
 }
 
@@ -163,6 +167,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 .box-conteudo-hora-extra {   /* HORA EXTRA */
     height: 500px;
     padding: 15px 0px;
+    display: none;
 }
 
 .box-conteudo-extrato {    /* EXTRATO */
@@ -333,5 +338,10 @@ span {
 }
 
 #voltar-hora-extra {
-    margin-bottom: 50px;
+    margin: 15px 0px 30px 0px;
+}
+
+.material-icons {
+    font-size: 2em;
+    color: white
 }
