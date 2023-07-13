@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
     <title>Bater ponto - Mahrez</title>
 </head>
-<body>
+<body class="body-bater-ponto">
     <?php include_once 'data.php'; session_start(); $cod = intval($_GET['cod']); trazer_folha($cod);?>
 
-    <div class="box-principal">
+    <div class="box-principal-bater-ponto">
 
         <div class="box-header">
             <img src="../../imagem/error-message.png" alt="working">

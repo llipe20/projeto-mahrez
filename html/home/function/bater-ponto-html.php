@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
     <title>Bater ponto - Mahrez</title>
 </head>
-<body>
-    <div class="box-principal">
+<body class="body-bater-ponto">
+    <div class="box-principal-bater-ponto">
 
         <div class="box-header">
             <img src="../../imagem/working.png" alt="working">

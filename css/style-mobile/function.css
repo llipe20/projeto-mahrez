@@ -30,18 +30,30 @@
 }
 
         /* CAIXA PRINCIPAL */
-.box-principal, body, html, .box-principal-hora-extra, .box-principal-hora-extra {
+.box-principal, body, .box-principal-hora-extra {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color:white;
     margin: 0px;
     padding: 0px;
+    height: 100vh;
+    overflow-y: auto;
 }
 
-.box-principal {
-    padding: 30px 0px;
+.body-bater-ponto {
+    display: block;
+}
+
+.box-principal-bater-ponto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0px;
+    overflow: hidden;
+
 }
 
 .box-principal-hora-extra {
@@ -61,7 +73,7 @@
     background-color: var(--cor-principal);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.484);
     border-radius: 12px 12px 0px 0px;
-    height: 160px;
+    height: 150px;
     width: 85vw;
 }
 
@@ -111,7 +123,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     background-color:white;
     border-radius: 0px 0px 12px 12px;
     padding-top: 25px;
-    height: 690px;
+    height: 670px;
     width: 85vw;
 }
 
@@ -124,7 +136,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 520px;
+    height: 510px;
     width: 88vw;
 }
 
@@ -132,10 +144,10 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     justify-content: space-evenly;
     box-shadow: none;
     align-items: center;
-    row-gap: 5px;
-    padding: 0px;
+    row-gap: 30px;
+    padding-top: 30px;
     width: 90vw;
-    height: 3900px;
+    height: auto;
 }
 
 .box-conteudo-dia {
@@ -144,16 +156,17 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     column-gap: 3px;
     row-gap: 18px;
     justify-content: center;
-    height: 510px;
+    padding-bottom: 25px;
+    height: auto;
 }
 
 .box-conteudo-hora-extra {   /* HORA EXTRA */
-    height: 520px;
+    height: 500px;
     padding: 15px 0px;
 }
 
 .box-conteudo-extrato {    /* EXTRATO */
-    height: 400px;
+    height: 350px;
     justify-content: space-evenly;
     padding: 10px 0px 15px 0px;
 }
@@ -170,6 +183,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 
 .box-data {
     justify-content: center;
+    height: 30px;
 }
 
 .box-voltar {    /* EXTRATO */
@@ -193,6 +207,11 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 
 .box-textarea-equipe {
     height: 110px;
+}
+
+ /* Falha tentativa de tira edição padrão dos input´s*/
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
         /* input TIME */
@@ -268,9 +287,9 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    height: 110px;
+    justify-content: space-evenly;
+    padding: 0px 15px 15px 0px;
+    height: 115px;
     width: 88vw;
 }
 

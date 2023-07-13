@@ -14,7 +14,7 @@
     {
         include '../../../php/conexao.php';
 
-        $sql = "SELECT horas FROM folha WHERE usuario = $id_usuario AND (horas = 9 OR horas = 8) ORDER BY dia;";
+        $sql = "SELECT dia,horas FROM folha WHERE usuario = $id_usuario ORDER BY dia;";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
@@ -22,7 +22,22 @@
 
             while ($dados = mysqli_fetch_assoc($result)) 
             {
-                $meta += $dados['horas'];
+                $dia_semana = dia_semana($dados['dia']);
+
+                if ($dia_semana != 5 and $dia_semana != 6 and $dia_semana != 7)
+                {
+                     $hora = $dados['horas'] - ($dados['horas'] - 9);
+                }
+                elseif ($dia_semana == 5)
+                {
+                    $hora = $dados['horas'] - ($dados['horas'] - 8);
+                }
+                else
+                {
+                    $hora = 0;
+                }
+
+                $meta += $hora;
             }
             
             $_SESSION['valorMeta'] = $meta;
@@ -78,19 +93,11 @@
 
                 if ($dia_semana != 5 && $dia_semana != 6 && $dia_semana != 7) 
                 {
-                    $time_extra = strtotime($dados['saida']);
-                    $time_normal = strtotime('17:30');
-
-                    $extra = ($time_extra - $time_normal) / 3600;
-
+                    $extra = $dados['horas'] - 9;
                 } 
                 elseif ($dia_semana == 5) 
                 {
-                    $time_extra = strtotime($dados['saida']);
-                    $time_normal = strtotime('16:30');
-
-                    $extra = ($time_extra - $time_normal) / 3600;
-
+                    $extra = $dados['horas'] - 8;
                 } 
                 else 
                 {
