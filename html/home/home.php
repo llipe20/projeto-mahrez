@@ -14,7 +14,7 @@
     <script src="../../java-script/function-button.js"></script>
 </head>
 <body>
-    <?php include_once 'function/data.php'; verificar_login();?>
+    <?php include_once 'function/data.php'; verificar_home();?>
 
     <header class="cabecalho">
         <section class="box-title">

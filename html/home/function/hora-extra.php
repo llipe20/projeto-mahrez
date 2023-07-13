@@ -12,6 +12,7 @@
 
 </head>
 <body>
+    <?php include_once './data.php'; verificar_login(); ?>
     <script>
         function toggleContent(iteracao) 
         {
@@ -35,9 +36,6 @@
         }
     </script>
     <?php 
-
-     include_once './data.php'; verificar_login();
-     
         function catador_hora_extras()
         {
             include './data.php';
@@ -104,7 +102,7 @@
         }
     ?>
     <div class="box-principal-hora-extra">
-        <div class="box-header" id="box-fixo">
+        <div class="box-header-fixo" id="box-fixo">
             <h2 class="titulo"><?php session_start(); echo 'Total de horas extras: '.$_SESSION['totHoras']?></h2>
         </div>
 

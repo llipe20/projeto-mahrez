@@ -4,13 +4,25 @@
 
     // VAI PARA UMA PAG PHP QUE DESTROI AS SESSÕES E DPS PARA PAG DE LOGIN
 
-function open()
+function toggleContent(iteracao) 
 {
-    var conteudo = document.getElementsByClassName('box-conteudo-hora-extra');
-    conteudo.style.display = 'flex';
+    var conteudo = document.getElementById('conteudo-' + iteracao);
+    var header = document.getElementById('header-' + iteracao);
+    var icone = document.getElementById(iteracao);
 
-    var header = document.getElementsByClassName('box-header-hora-extra');
-    header.style.borderRadius = '12px 12px 0px 0px';
+    if (conteudo.style.display == 'flex') 
+    {
+        conteudo.style.display = 'none';
+        header.style.borderRadius = '12px';
+        icone.textContent = 'expand_more';
+    } 
+    else 
+    {
+        header.style.borderRadius = '12px 12px 0px 0px';
+        conteudo.style.height = '450px';
+        conteudo.style.display = 'flex';
+        icone.textContent = 'expand_less';
+    }
 }
 
 function sair_login() 

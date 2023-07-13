@@ -8,7 +8,7 @@
     <title>Bater ponto - Mahrez</title>
 </head>
 <body class="body-bater-ponto">
-    <?php include_once 'data.php'; session_start(); $cod = intval($_GET['cod']); trazer_folha($cod);?>
+    <?php include_once 'data.php'; verificar_login(); $cod = intval($_GET['cod']); trazer_folha($cod);?>
 
     <div class="box-principal-bater-ponto">
 

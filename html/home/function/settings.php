@@ -7,6 +7,7 @@
     <title>Configurações</title>
 </head>
 <body>
+    <?php include_once './data.php'; verificar_login(); ?>
     <div class="box-principal">
 
         <!-- CAIXA DE APRESENTAÇÃO  -->
@@ -18,7 +19,7 @@
 
             <div class="box-text">
                 <label for="nome">User name:</label>
-                <input class="input-texto" type="text" name="nome" value="<?php session_start(); echo $_SESSION['usuario']; ?>">
+                <input class="input-texto" type="text" name="nome" value="<?php echo $_SESSION['usuario']; ?>">
             </div>
 
             <div class="box-text">

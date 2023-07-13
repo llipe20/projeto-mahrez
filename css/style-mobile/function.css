@@ -64,7 +64,7 @@
 }
 
        /* HEADER */
-.box-header, .box-header-hora-extra, .box-month {
+.box-header, .box-header-fixo, .box-header-hora-extra, .box-month {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,11 +76,11 @@
     width: 85vw;
 }
 
-#box-fixo {  /* CAIXA DE TOT HORA NA PAG DE HORA EXTRA*/
+.box-header-fixo {  /* CAIXA DE TOT HORA NA PAG DE HORA EXTRA*/
     width: 100vw;
-    height: 90px;
+    height: 110px;
     margin: 0px;
-    border-radius: none;
+    border-radius: 0px;
 }
 
 .box-month {

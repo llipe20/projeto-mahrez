@@ -123,6 +123,20 @@
 
         if ($_SESSION['logado'] == false)
         {   
+            echo "<script>window.location.href = '../../login/index.html'</script>";  // PAG DE LOGIN
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    function verificar_home()  
+    {
+        session_start();
+
+        if ($_SESSION['logado'] == false)
+        {   
             echo "<script>window.location.href = '../login/index.html'</script>";  // PAG DE LOGIN
         }
         else
@@ -173,7 +187,6 @@
     // FUNÇÃO para pegar todos os registro de uma usuário do mês e exibir os dias com link 
     function catar_registro()
     {
-        session_start();
         date_default_timezone_set('America/Sao_Paulo');
 
         $id_usuario = $_SESSION['id'];
