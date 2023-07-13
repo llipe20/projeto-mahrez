@@ -6,10 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-    // Define o fuso horário para Brasília
-date_default_timezone_set('America/Sao_Paulo');
-        echo date('d-m-y H:m:s');
-    ?>
+    <?php include_once './data.php'; verificar_login(); ?>
 </body>
 </html>

@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
     <title>Bater ponto - Mahrez</title>
 </head>
+    <?php include_once './data.php'; verificar_login(); ?>
+    
 <body class="body-bater-ponto">
     <div class="box-principal-bater-ponto">
 

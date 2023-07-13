@@ -9,7 +9,7 @@
     <script src="../../../java-script/function-button.js"></script>
 </head>
 <body>
-    <?php include_once './data.php';?>
+    <?php include_once './data.php'; verificar_login(); ?>
 
     <div class="box-principal">
         <div class="box-month">

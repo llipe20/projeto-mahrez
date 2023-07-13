@@ -35,6 +35,9 @@
         }
     </script>
     <?php 
+
+     include_once './data.php'; verificar_login();
+     
         function catador_hora_extras()
         {
             include './data.php';

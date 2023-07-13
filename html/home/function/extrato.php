@@ -8,7 +8,7 @@
     <title>Extrato - Mahrez</title>
 </head>
 <body>
-    <?php include_once './data.php'; session_start();?>
+    <?php include_once './data.php'; session_start(); verificar_login();?>
     <div class="box-principal">
         <header class="box-header">
             <img src="../../imagem/dollar-coin.png" alt="dolar_coin">
