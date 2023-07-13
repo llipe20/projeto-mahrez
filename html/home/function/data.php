@@ -123,7 +123,7 @@
 
         if ($_SESSION['logado'] == false)
         {   
-            echo "<script>window.location.href = '../../login/index.html'</script>";  // PAG DE LOGIN
+            echo "<script>window.location.href = '../../../index.html'</script>";  // PAG DE LOGIN
         }
         else
         {
@@ -137,7 +137,7 @@
 
         if ($_SESSION['logado'] == false)
         {   
-            echo "<script>window.location.href = '../login/index.html'</script>";  // PAG DE LOGIN
+            echo "<script>window.location.href = '../../index.html'</script>";  // PAG DE LOGIN
         }
         else
         {
