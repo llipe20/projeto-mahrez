@@ -26,8 +26,24 @@
                     $data = date_create($dados['dia']);
                     $data_banco = date_format($data, ' d . m');
 
-                    echo 
-                    '
+                    // pegando a data do banco para recalcuular o valor da hora;
+                  
+                    $dia = dia_semana($dados['dia']);
+
+                    if ($dia != 5 and $dia != 6 and $dia != 7)   // SE TRABALHAR NOS DIAS UTEIS
+                    {
+                        $hora_extra = $dados['horas'] - 9;
+                    }
+                    elseif ($dia == 5) // SE TRABALHAR NA SEXTA
+                    {
+                        $hora_extra = $dados['horas'] - 8;
+                    }
+                    else // FINAIS DE SEMANA
+                    {
+                        $hora_extra = $dados['horas'];
+                    }
+                    
+                    echo '
                     <div class="box-box-hora-extra">
                         <header class="box-header-hora-extra">
                             <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
@@ -45,12 +61,12 @@
                 
                             <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
 
-                            <p class="p-hora-extra">Horas ganha: '.$dados['horas'].'</p>
+                            <p class="p-hora-extra">Horas ganha: '.$hora_extra.'</p>
                         </div>
                     </div>';
                    
 
-                    $tot_horas += $dados['horas'];
+                    $tot_horas += $hora_extra;
                 }
 
                 $_SESSION['totHoras'] = $tot_horas;
