@@ -17,17 +17,20 @@
         {
             var conteudo = document.getElementById('conteudo-' + iteracao);
             var header = document.getElementById('header-' + iteracao);
+            var icone = document.getElementById(iteracao);
 
             if (conteudo.style.display == 'flex') 
             {
                 conteudo.style.display = 'none';
                 header.style.borderRadius = '12px';
+                icone.textContent = 'expand_more';
             } 
             else 
             {
                 header.style.borderRadius = '12px 12px 0px 0px';
                 conteudo.style.height = '450px';
                 conteudo.style.display = 'flex';
+                icone.textContent = 'expand_less';
             }
         }
     </script>
@@ -70,7 +73,7 @@
                     <div class="box-box-hora-extra">
                         <header id="header-'.$dados['cod'].'" class="box-header-hora-extra">
                             <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
-                            <span class="material-icons">expand_more</span>
+                            <span id="'.$dados['cod'].'" class="material-icons">expand_more</span>
                         </header>
                 
                         <div id="conteudo-'.$dados['cod'].'" class="box-conteudo-hora-extra">
