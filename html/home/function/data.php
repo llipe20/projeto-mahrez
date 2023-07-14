@@ -9,52 +9,55 @@
 
 <?php // FUNÇÕES ESPÉCIFICCAS PARA OS CODIGOS;
 
-    // Calcula todas as 220 horas foram feita no mês;
-    function calcular_salario($id_usuario)
-    {
-        include '../../../php/conexao.php';
+    // Verificar se a função calcular_salario já foi declarada
+    if (!function_exists('calcular_salario')) {
+        // Calcula todas as 220 horas foram feitas no mês;
+        function calcular_salario($id_usuario)
+        {
+            include '../../../php/conexao.php';
 
-        $sql = "SELECT dia,horas FROM folha WHERE usuario = $id_usuario ORDER BY dia;";
-        $result = mysqli_query($conn, $sql);
+            $sql = "SELECT dia,horas FROM folha WHERE usuario = $id_usuario ORDER BY dia;";
+            $result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) > 0) {
-            $meta = 0;
+            if (mysqli_num_rows($result) > 0) {
+                $meta = 0;
 
-            while ($dados = mysqli_fetch_assoc($result)) 
-            {
-                $dia_semana = dia_semana($dados['dia']);
-
-                if ($dia_semana != 5 and $dia_semana != 6 and $dia_semana != 7)
+                while ($dados = mysqli_fetch_assoc($result)) 
                 {
-                     $hora = $dados['horas'] - ($dados['horas'] - 9);
+                    $dia_semana = dia_semana($dados['dia']);
+
+                    if ($dia_semana != 5 and $dia_semana != 6 and $dia_semana != 7)
+                    {
+                         $hora = $dados['horas'] - ($dados['horas'] - 9);
+                    }
+                    elseif ($dia_semana == 5)
+                    {
+                        $hora = $dados['horas'] - ($dados['horas'] - 8);
+                    }
+                    else
+                    {
+                        $hora = 0;
+                    }
+
+                    $meta += $hora;
                 }
-                elseif ($dia_semana == 5)
+                
+                $_SESSION['valorMeta'] = $meta;
+                
+                if ($meta < 220)
                 {
-                    $hora = $dados['horas'] - ($dados['horas'] - 8);
+                    $valor = 220 - $meta;
+                    return 'Faltam '.$valor.' horas';
+                }
+                elseif ($meta > 220)
+                {
+                    $valor = $meta - 220;
+                    return 'Ultrapassou '.$valor.' horas';
                 }
                 else
                 {
-                    $hora = 0;
+                    return 'Alcançada';
                 }
-
-                $meta += $hora;
-            }
-            
-            $_SESSION['valorMeta'] = $meta;
-            
-            if ($meta < 220)
-            {
-                $valor = 220 - $meta;
-                return 'Faltam '.$valor.' horas';
-            }
-            elseif ($meta > 220)
-            {
-                $valor = $meta - 220;
-                return 'Ultrapassou '.$valor.' horas';
-            }
-            else
-            {
-                return 'Alcançada';
             }
         }
     }
@@ -63,51 +66,57 @@
 
 
 
-    // FUNÇÃO que converte hora em dinheiro;
-    function calcular_hora_extra($hora) 
-    {   
-        $valor = $hora * $_SESSION['valorHora'];
-        $_SESSION['valorExtra'] = $valor;
-        $reais = number_format($valor, 2, ',', '.');
+    // Verificar se a função calcular_hora_extra já foi declarada
+    if (!function_exists('calcular_hora_extra')) {
+        // FUNÇÃO que converte hora em dinheiro;
+        function calcular_hora_extra($hora) 
+        {   
+            $valor = $hora * $_SESSION['valorHora'];
+            $_SESSION['valorExtra'] = $valor;
+            $reais = number_format($valor, 2, ',', '.');
 
-        return $reais;
+            return $reais;
+        }
     }
 
 
 
-    // Calcula todas as horas extras feita no mês;
-    function quant_hora_extra($id_usuario)
-    {
-        include '../../../php/conexao.php';
-
-        $sql = "SELECT saida, dia, horas FROM folha WHERE usuario = $id_usuario AND (horas > 9 OR horas < 8) ORDER BY dia;";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) 
+    // Verificar se a função quant_hora_extra já foi declarada
+    if (!function_exists('quant_hora_extra')) {
+        // Calcula todas as horas extras feitas no mês;
+        function quant_hora_extra($id_usuario)
         {
-            $tot_extra = 0;
+            include '../../../php/conexao.php';
 
-            while ($dados = mysqli_fetch_assoc($result)) 
+            $sql = "SELECT saida, dia, horas FROM folha WHERE usuario = $id_usuario AND (horas > 9 OR horas < 8) ORDER BY dia;";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) 
             {
-                $dia_semana = dia_semana($dados['dia']);
+                $tot_extra = 0;
 
-                if ($dia_semana != 5 && $dia_semana != 6 && $dia_semana != 7) 
+                while ($dados = mysqli_fetch_assoc($result)) 
                 {
-                    $extra = $dados['horas'] - 9;
-                } 
-                elseif ($dia_semana == 5) 
-                {
-                    $extra = $dados['horas'] - 8;
-                } 
-                else 
-                {
-                    $extra = $dados['horas'];
+                    $dia_semana = dia_semana($dados['dia']);
+
+                    if ($dia_semana != 5 && $dia_semana != 6 && $dia_semana != 7) 
+                    {
+                        $extra = $dados['horas'] - 9;
+                    } 
+                    elseif ($dia_semana == 5) 
+                    {
+                        $extra = $dados['horas'] - 8;
+                    } 
+                    else 
+                    {
+                        $extra = $dados['horas'];
+                    }
+
+                    $tot_extra += $extra;
                 }
 
-                $tot_extra += $extra;
+                return $tot_extra;
             }
-
-            return $tot_extra;
         }
     }
 
@@ -116,7 +125,7 @@
     
     
     
-    // função para verificar se o usuário fez login para poder navegar nas paginas
+    // função para verificar se o usuário fez login para poder navegar nas páginas
     function verificar_login()  
     {
         session_start();
@@ -184,7 +193,7 @@
 
 
 
-    // FUNÇÃO para pegar todos os registro de uma usuário do mês e exibir os dias com link 
+    // FUNÇÃO para pegar todos os registros de um usuário do mês e exibir os dias com link 
     function catar_registro()
     {
         date_default_timezone_set('America/Sao_Paulo');
@@ -216,7 +225,7 @@
 
 
 
-    // Função que traz registros espeficos na tebela de folha
+    // Função que traz registros específicos na tabela de folha
     function trazer_folha($cod)
     {
         include '../../../php/conexao.php';

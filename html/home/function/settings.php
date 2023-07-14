@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
+    <link rel="stylesheet" href="../../../css/style-desktop/function.css" media="screen and (min-width: 801px)">
+
     <title>Configurações</title>
 </head>
 <body>
@@ -15,7 +17,7 @@
             <h1>Veja suas informações</h1>
         </div>
         <!-- CAIXA DE INFORMAÇÕES -->
-        <form class="box-conteudo-set" action="../../../php/home/function/configuracao.php" method="POST">
+        <form class="box-conteudo" action="../../../php/home/function/configuracao.php" method="POST">
 
             <div class="box-text">
                 <label for="nome">User name:</label>
@@ -37,7 +39,7 @@
                 <input class="input-texto" type="password" name="senha" value="<?php echo $_SESSION['senha']; ?>">
             </div>
 
-            <div class="box-tet">
+            <div class="box-text">
             <label for="confirm-password">Confirm pass:</label>
             <input class="input-texto"  type="password" name="confirm-password" value="<?php echo $_SESSION['senha']; ?>">
             </div>

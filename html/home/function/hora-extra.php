@@ -7,17 +7,19 @@
       rel="stylesheet">
     <link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
+    <link rel="stylesheet" href="../../../css/style-desktop/function.css" media="screen and (min-width: 801px)">
     
     <title>Hora Extra - Mahrez</title>
 
 </head>
 <body>
-    <?php include_once './data.php'; verificar_login(); ?>
+    <?php session_start(); ?>
     <script>
         function toggleContent(iteracao) 
         {
             var conteudo = document.getElementById('conteudo-' + iteracao);
             var header = document.getElementById('header-' + iteracao);
+            var hora = document.getElementById('hora-' + iteracao);
             var icone = document.getElementById(iteracao);
 
             if (conteudo.style.display == 'flex') 
@@ -31,6 +33,7 @@
                 header.style.borderRadius = '12px 12px 0px 0px';
                 conteudo.style.height = '450px';
                 conteudo.style.display = 'flex';
+                hora.style.color = 'green';
                 icone.textContent = 'expand_less';
             }
         }
@@ -89,21 +92,26 @@
                 
                             <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
 
-                            <p class="p-hora-extra">Horas ganha: '.$hora_extra.'</p>
+                            <p id="hora-'.$dados['cod'].'" class="p-hora-extra">Horas ganha: '.$hora_extra.'</p>
                         </div>
                     </div>';
                    
 
                     $tot_horas += $hora_extra;
+                    $temHora = true;
                 }
-
-                $_SESSION['totHoras'] = $tot_horas;
+                    $_SESSION['totHoras'] = $tot_horas;
+                
+            }
+            else
+            {
+                $_SESSION['totHoras'] = '0';
             }
         }
     ?>
     <div class="box-principal-hora-extra">
         <div class="box-header-fixo" id="box-fixo">
-            <h2 class="titulo"><?php session_start(); echo 'Total de horas extras: '.$_SESSION['totHoras']?></h2>
+            <h2 class="titulo"><?php echo 'Total de horas extras: '.$_SESSION['totHoras']?></h2>
         </div>
 
         <div class="box-main-pai">

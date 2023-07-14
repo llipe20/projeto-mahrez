@@ -1,0 +1,368 @@
+@charset "UTF-8";
+
+     /* FONTE TEXTO */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');  
+
+    /* FONTE PRINCIPAL */
+@font-face {   
+    font-family:'GeosansLight';
+    src: url(../fontes/GeosansLight.ttf)
+         format('truetype');
+}
+
+    /* FONTE STYLE */
+@font-face {
+    font-family: 'CinzelDecorative';
+    src: url(../fontes/CinzelDecorative-Regular.ttf)
+         format('truetype');
+}
+
+:root {
+
+    --cor-principal:  #1C45EB; 
+    --cor-secundaria: #0428BB;
+    --cor-rodape: #01092D;
+   
+    --font-style: 'CinzelDecorative';
+    --font-principal: 'GeosansLight';
+    --font-texto: 'Open Sans', sans-serif;
+}
+
+        /* CAIXA PRINCIPAL */
+.box-principal, body, .box-principal-hora-extra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #01092D;
+}
+
+.body-bater-ponto {
+    height: auto;
+}
+
+.box-principal-bater-ponto {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0px;
+    overflow: hidden;
+    max-width: 900px;
+}
+
+.box-principal-hora-extra {
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    justify-content: flex-start;
+    row-gap: 10px;
+
+}
+
+       /* HEADER */
+.box-header, .box-header-fixo, .box-header-hora-extra, .box-month {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-principal);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.484);
+    border-radius: 12px 12px 0px 0px;
+    height: 150px;
+    width: 80vw;
+    max-width: 800px;
+}
+
+.box-header-fixo {  /* CAIXA DE TOT HORA NA PAG DE HORA EXTRA*/
+    width: 100vw;
+    height: 110px;
+    margin: 0px;
+    max-width: 100vw;
+    border-radius: 0px;
+}
+
+.box-month {
+    height: 90px;
+}
+
+.box-header-hora-extra {  /* HORA EXTRA */
+    height: 120px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0px;
+    border-radius: 12px;
+    max-width: 600px;
+}
+
+img {
+    height: 70px;
+    width: 70px;
+    margin-top: 10px;
+}
+
+h1, h2, .titulo, #month, .sub-titulo-set {
+    font: bold 1.5em var(--font-principal);
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.368);
+    color: white;
+    text-align: center;
+}
+
+.sub-titulo-set {
+    color: var(--cor-principal);
+    margin: auto ;
+}
+
+#month { /*TITULO DA PAG DE ESCOLHER DATA PARA MODIFICAR*/
+    font-size: 2em;
+}
+
+       /* CAIXA DO CONTÉUDO */
+.box-conteudo, .box-conteudo-hora-extra, .box-conteudo-extrato, .box-conteudo-dia, .box-main-pai, .box-conteudo-set {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.484);
+    background-color:white;
+    border-radius: 0px 0px 12px 12px;
+    padding-top: 15px;
+    height: 690px;
+    width: 80vw;
+    max-width: 800px;
+}
+
+.box-conteudo-set {
+    height: 550px;
+}
+
+.box-box-hora-extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 88vw;
+    max-width: 400px;
+}
+
+.box-main-pai {  /* CAIXA que organiza as caxias das horas extras*/
+    justify-content: space-evenly;
+    box-shadow: none;
+    align-items: center;
+    row-gap: 30px;
+    padding-top: 30px;
+    width: 90vw;
+    height: auto;
+}
+
+.box-conteudo-dia {
+    flex-flow: row wrap;
+    align-content: flex-start;
+    column-gap: 3px;
+    row-gap: 18px;
+    justify-content: center;
+    padding-bottom: 25px;
+    height: auto;
+}
+
+.box-conteudo-hora-extra {   /* HORA EXTRA */
+    height: 500px;
+    max-width: 600px;
+    padding: 15px 0px;
+    display: none;
+    align-items: flex-start;
+}
+
+.box-conteudo-extrato {    /* EXTRATO */
+    height: 350px;
+    justify-content: space-evenly;
+    padding: 10px 0px 15px 0px;
+}
+
+        /* caixa dos input TIME */
+.box-time, .box-text, .box-voltar, .box-data {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 5px 5px 5px 5px;
+    height: 50px;
+    width: 80vw;
+    max-width: 700px;
+    background-color: aqua;
+}
+
+.box-data {
+    justify-content: center;
+    height: 30px;
+}
+
+.box-voltar {    /* EXTRATO */
+    width: 85vw;
+    justify-content: center;
+}
+
+.box-text {
+    width: 80vw;
+}
+
+        /* caixa dos input TEXTAREA */
+.box-textarea-equipe, .box-textarea-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    height: 152px;
+    width: 80vw;
+    max-width: 700px;
+    background-color: aquamarine;
+}
+
+.box-textarea-equipe {
+    height: 110px;
+}
+
+ /* Falha tentativa de tira edição padrão dos input´s*/
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+        /* input TIME */
+.input-time {
+    height: 35px;
+    width: 25vw;
+    max-width: 200px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.338);
+    font-size: 1.2em;
+}
+
+label, .p-hora-extra, .p-extrato, .data, span {
+    font: bold 1.1em var(--font-texto);
+    color: var(--cor-principal);
+    margin: 0px 20px 0px 40px;
+}
+
+span {
+    margin-left: 0px;
+}
+
+.p-extrato {
+   font-weight: bolder;
+   color: #0528b3;
+}
+
+.data {
+    text-align: center;
+    margin-left: 100px;
+}
+
+        /* input TEXT */
+.input-text, .input-texto {
+    height: 35px;
+    width: 60vw;
+    max-width: 500px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.338);
+    font-size: 1em;
+}
+
+.input-texto {
+    width: 45vw;
+    max-width: 500px;
+}
+
+
+        /* input TEXTAREA */
+.input-textarea-equipe, .input-textarea-desc {
+    border-radius: 10px;
+    height: 40px;
+    width: 67vw;
+    max-width: 550px;
+    padding: 15px;
+    margin-left: 40px;
+    font: bold 0.95em var(--font-texto);
+    box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.347);
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.338);
+}
+
+.input-textarea-desc {
+    height: 80px;
+}
+
+                        /* PSEUDO CLASSE NOS INPUT */
+.input-text:focus, .input-textarea:focus, .input-time:focus {    
+    outline: none;
+}
+
+        /* BOTÕEOS */
+
+.box-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0px 15px 15px 0px;
+    height: 115px;
+    width: 88vw;
+}
+
+.button, .button-dia {
+    background-color: var(--cor-principal);
+    font: bold 1.1em var(--font-principal);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.489);
+    border: none;
+    height: 46px;
+    width: 35vw;
+    max-width: 180px;
+    margin-top: 10px;
+}
+
+.box-button-dia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    width: 65px;
+}
+
+.button-dia {
+    border-radius: 50%;
+    padding: 5px;
+    height: 55px;
+    width: 55px;
+}
+
+.link-acesso, .link-voltar {
+    font: bold 1.1em var(--font-texto);
+    color: var(--cor-principal);
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+#voltar-home-modponto {
+    margin-top: 35px;
+}
+
+#voltar-hora-extra {
+    margin: 15px 0px 30px 0px;
+}
+
+.material-icons {
+    font-size: 2em;
+    color: white
+}
