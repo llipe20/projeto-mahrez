@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
     <link rel="stylesheet" href="../../css/style-mobile/home.css" media="screen and (max-width: 800px)">
+    <link rel="stylesheet" href="../../css/style-desktop/home.css" media="screen and (min-width: 801px)">
     <title>Página principal - Mahrez</title>
 
     <!-- LINKS JAVASCRIPT -->

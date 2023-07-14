@@ -12,7 +12,7 @@
         if (empty($email) or empty($senha))
         {
             echo '<script>alert("Preencha os dados!")</script>';
-            echo "<script>window.location.href = '../../html/login/index.html'</script>"; 
+            echo "<script>window.location.href = '../../index.html'</script>"; 
         }
         else
         {
@@ -22,7 +22,7 @@
             if (mysqli_num_rows($resul) == 0) 
             {
                 echo '<script>alert("Usuário inexistente!")</script>';
-                echo "<script>window.location.href = '../../html/login/index.html'</script>"; 
+                echo "<script>window.location.href = '../../index.html'</script>";
             }
             else 
             {
@@ -31,7 +31,7 @@
                 if ($dados['senha'] != $senha)
                 {
                     echo '<script>alert("Senha incorreta!")</script>';
-                    echo "<script>window.location.href = '../../html/login/index.html'</script>"; 
+                    echo "<script>window.location.href = '../../index.html'</script>";
                 }
                 else
                 {
