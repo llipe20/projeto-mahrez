@@ -345,3 +345,9 @@ span {
     font-size: 2em;
     color: white
 }
+
+.msg-vazio {
+    font: bold 1.1em var(--font-texto);
+    color: var(--cor-principal);
+    margin: auto;
+}

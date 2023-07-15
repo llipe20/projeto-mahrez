@@ -106,6 +106,8 @@
             else
             {
                 $_SESSION['totHoras'] = '0';
+
+                echo '<h2 class="msg-vazio">Sem horas extras!</h2>';
             }
         }
     ?>

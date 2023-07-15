@@ -6,7 +6,7 @@
     <?php echo '<link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">';?>
      <link rel="stylesheet" href="../../../css/style-desktop/function.css" media="screen and (min-width: 801px)">
-     
+
     <title>Extrato - Mahrez</title>
 </head>
 <body>
@@ -38,13 +38,13 @@
 
             <!-- Mostra O SALÁRIO DIA 07 -->
             <div class="box-text">
-                <p class="p-extrato">Salário: </p><span><?php $salario = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * ($_SESSION['valorMeta'] - 110) - 105.6); echo number_format($salario, 2, ',', '.')?></span>
+                <p class="p-extrato">Salário: </p><span><?php $salario1 = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * ($_SESSION['valorMeta'] - 110) - 105.6); if ($salario1 <= 0) {echo '0,00';} else {echo number_format($salario1, 2, ',', '.');}?></span>          
             </div>
 
 
             <!-- Mostra O SALÁRIO COMPLETO -->
             <div class="box-text">
-                <p class="p-extrato">Salário Completo: </p><span><?php $salario = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * $_SESSION['valorMeta']) - 105.6; echo number_format($salario, 2, ',', '.')?></span>
+                <p class="p-extrato">Salário Completo: </p><span><?php $salario_completo = $_SESSION['valorExtra'] + ($_SESSION['valorHora'] * $_SESSION['valorMeta']) - 105.6;  if ($salario1 <= 0) {echo '0,00';} else {echo number_format($salario_completo, 2, ',', '.');}?></span>
             </div>
             
             <div class="box-voltar">

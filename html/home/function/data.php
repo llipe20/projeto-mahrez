@@ -219,6 +219,10 @@
 
             }
         }
+        else
+        {
+            echo '<h2 class="msg-vazio">Sem horas!</h2>';
+        }
     }
 
 

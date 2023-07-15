@@ -166,7 +166,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     column-gap: 5px;
     row-gap: 18px;
     justify-content: center;
-    padding: 25px;
+    padding: 25px 0px;
     height: auto;
 }
 
@@ -361,4 +361,10 @@ span {
 .material-icons {
     font-size: 2em;
     color: white
+}
+
+.msg-vazio {
+    font: bold 1.1em var(--font-texto);
+    color: var(--cor-principal);
+    margin: auto;
 }
