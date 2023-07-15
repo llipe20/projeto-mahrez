@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 
 <?php  // COD QUE SALVA AS ALTERAÇÕES FEITAS NO PONTO; 
 
@@ -29,8 +37,6 @@
         else
         {
            // pegando a data do banco para recalcuular o valor da hora;
-                $data = date_create($data_banco);
-                $data_banco = date_format($data, 'd/m/Y');
                 $dia = dia_semana($data_banco);
 
                 $time_entrada = strtotime($entrada);
@@ -71,3 +77,6 @@
               
         }
 ?>
+    
+</body>
+</html>
