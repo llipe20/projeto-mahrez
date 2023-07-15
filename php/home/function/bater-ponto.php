@@ -28,6 +28,7 @@
 
         $row_folha = mysqli_fetch_assoc($result_folha);
         $data_banco = $row_folha['dia'];
+        date_default_timezone_set('America/Sao_Paulo');
         $data_atual = date('Y-m-d');
         $timestamp_banco = strtotime($data_banco);
         $timestamp_atual = strtotime($data_atual);
@@ -69,7 +70,7 @@
             else
             {
                 // Definindo a quantidade de hora do dia;
-
+                date_default_timezone_set('America/Sao_Paulo');
                 $data = date('d-m-Y');
 
                 $dia = dia_semana($data);

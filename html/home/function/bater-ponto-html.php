@@ -10,7 +10,6 @@
     <title>Bater ponto - Mahrez</title>
 </head>
     <?php include_once './data.php'; verificar_login(); ?>
-    
 <body class="body-bater-ponto">
     <div class="box-principal-bater-ponto">
 
@@ -19,7 +18,6 @@
 
             <h1>Trabalhou muito hoje?</h1>
         </div>
-
         <!-- CAIXA DE CONTÉUDO -->
             <form class="box-conteudo" action="../../../php/home/function/bater-ponto.php" method="POST">
                 
