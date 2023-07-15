@@ -39,7 +39,6 @@
     padding: 0px;
     height: 100vh;
     overflow-y: auto;
-    background-color: #01092D;
 }
 
 .body-bater-ponto {
@@ -47,7 +46,6 @@
 }
 
 .box-principal-bater-ponto {
-    background-color: aqua;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +71,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--cor-principal);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.484);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.414);
     border-radius: 12px 12px 0px 0px;
     height: 150px;
     width: 80vw;
@@ -129,7 +127,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.484);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.467);
     background-color:white;
     border-radius: 0px 0px 12px 12px;
     padding-top: 15px;
@@ -139,7 +137,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 }
 
 .box-conteudo-set {
-    height: 550px;
+    height: 530px;
 }
 
 .box-box-hora-extra {
@@ -165,10 +163,10 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 .box-conteudo-dia {
     flex-flow: row wrap;
     align-content: flex-start;
-    column-gap: 3px;
+    column-gap: 5px;
     row-gap: 18px;
     justify-content: center;
-    padding-bottom: 25px;
+    padding: 25px;
     height: auto;
 }
 
@@ -195,7 +193,6 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     height: 50px;
     width: 80vw;
     max-width: 700px;
-    background-color: aqua;
 }
 
 .box-data {
@@ -221,7 +218,6 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     height: 152px;
     width: 80vw;
     max-width: 700px;
-    background-color: aquamarine;
 }
 
 .box-textarea-equipe {
@@ -240,7 +236,6 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     max-width: 200px;
     text-align: center;
     border: none;
-    border-radius: 10px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.338);
     font-size: 1.2em;
 }
@@ -272,7 +267,6 @@ span {
     max-width: 500px;
     padding-left: 10px;
     border: none;
-    border-radius: 10px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.338);
     font-size: 1em;
 }
@@ -336,15 +330,17 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65px;
-    width: 65px;
+    height: 10vw;
+    width: 10vw;
+    max-height: 80px;
+    max-width: 80px;
 }
 
 .button-dia {
     border-radius: 50%;
-    padding: 5px;
-    height: 55px;
-    width: 55px;
+    padding: 3px;
+    height: 65px;
+    width: 65px;
 }
 
 .link-acesso, .link-voltar {

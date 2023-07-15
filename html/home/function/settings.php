@@ -8,16 +8,16 @@
 
     <title>Configurações</title>
 </head>
-<body>
+<body class="body-bater-ponto">
     <?php include_once './data.php'; verificar_login(); ?>
-    <div class="box-principal">
+    <div class="box-principal-bater-ponto">
 
         <!-- CAIXA DE APRESENTAÇÃO  -->
-        <div class="box-header-hora-extra">
+        <div class="box-header">
             <h1>Veja suas informações</h1>
         </div>
         <!-- CAIXA DE INFORMAÇÕES -->
-        <form class="box-conteudo" action="../../../php/home/function/configuracao.php" method="POST">
+        <form class="box-conteudo-set" action="../../../php/home/function/configuracao.php" method="POST">
 
             <div class="box-text">
                 <label for="nome">User name:</label>
