@@ -1,4 +1,4 @@
-
+<script>
 <?php
 
 function ponto_automatico() // FUNÇÃO DE ADD PONTO AUTOMATICAMENTE
@@ -65,6 +65,23 @@ function ponto_automatico() // FUNÇÃO DE ADD PONTO AUTOMATICAMENTE
             }
         }
     }
-
-    ponto_automatico();
 ?>
+
+function agendarExecucaoDiaria() {
+  const agora = new Date();
+  const proximaExecucao = new Date(agora);
+  proximaExecucao.setDate(proximaExecucao.getDate() + 1);
+  proximaExecucao.setHours(0, 0, 0, 0); // Define a próxima execução para o início do próximo dia
+
+  const tempoRestante = proximaExecucao.getTime() - agora.getTime();
+
+  setTimeout(function () {
+    ponto_automatico();
+    agendarExecucaoDiaria(); // Agendando próxima execução após 24 horas
+  }, tempoRestante);
+}
+
+// Inicia o agendamento
+agendarExecucaoDiaria();
+</script>
+
