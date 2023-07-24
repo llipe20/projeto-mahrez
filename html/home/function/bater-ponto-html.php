@@ -29,7 +29,7 @@
                 <!-- HORA DE ENTRADA -->
                 <div class="box-time">
                     <label for="entrada">Hora de entrada:</label>
-                    <input class="input-time" id="entrada" type="time" name="entrada" required>
+                    <input class="input-time" id="entrada" type="time" name="entrada" autofocus required>
                 </div>
                 
                 <!-- HORA DE SAIDA -->

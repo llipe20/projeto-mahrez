@@ -107,7 +107,7 @@
                     mysqli_close($conn); // fechando conexão;
 
                     echo '<script>alert("Salvo com sucesso!")</script>';
-                    echo "<script>window.location.href = '../../../html/home/function/bater-ponto-html.php'</script>"; 
+                    echo "<script>window.location.href = '../../../html/home/home.php'</script>"; 
                 }      
             }
               
