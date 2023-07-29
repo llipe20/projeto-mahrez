@@ -11,6 +11,7 @@
 
     // FUNÇÃO para pegar todos os registros de um usuário do mês e exibir os dias com link 
    
+
     function montarTabela($id)
     {
         date_default_timezone_set('America/Sao_Paulo');
@@ -52,10 +53,10 @@
                     echo '<td>' . $registro_banco["horas"] . '</td>';
                 }
             } else {
-                echo '<td></td>';
-                echo '<td></td>';
-                echo '<td></td>';
-                echo '<td></td>';
+                echo '<td>-</td>';
+                echo '<td>-</td>';
+                echo '<td>-</td>';
+                echo '<td>-</td>';
             }
     
             echo '</tr>';
@@ -69,10 +70,10 @@
                 if (!isset($registros_banco[$dia_com_zeros])) {
                     echo '<tr>';
                     echo '<td>' . $dia_com_zeros . '</td>';
-                    echo '<td></td>';
-                    echo '<td></td>';
-                    echo '<td></td>';
-                    echo '<td></td>';
+                    echo '<td>-</td>';
+                    echo '<td>-</td>';
+                    echo '<td>-</td>';
+                    echo '<td>-</td>';
                     echo '</tr>';
                 }
             }
@@ -80,14 +81,6 @@
         }
     }
     
-    
-    
-
-    
-
-    
-
-
     // Verificar se a função calcular_salario já foi declarada
     if (!function_exists('calcular_salario')) {
         // Calcula todas as 220 horas foram feitas no mês;
