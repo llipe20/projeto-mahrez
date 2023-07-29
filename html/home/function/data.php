@@ -9,6 +9,67 @@
 
 <?php // FUNÇÕES ESPÉCIFICCAS PARA OS CODIGOS;
 
+    // FUNÇÃO para pegar todos os registros de um usuário do mês e exibir os dias com link 
+    function montarTabela($id)
+    {
+        date_default_timezone_set('America/Sao_Paulo');
+
+        include '../../../php/conexao.php';
+
+        $mes_atual = intval(date('m'));
+
+        $sql = "SELECT * FROM folha WHERE usuario = $id AND MONTH(STR_TO_DATE(dia, '%Y-%m-%d')) = '$mes_atual' ORDER BY dia";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0)
+        {
+           $totHoras = 0;
+
+            while ($row = mysqli_fetch_assoc($result)) 
+            {
+                $dia = date('d', strtotime($row['dia']));
+
+                $week = dia_semana($row['dia']);
+
+                // Separar o final de semana dos dis uteis;
+
+                if ($week != 6 or $week != 7)
+                {
+                    echo "
+                    <tr>  
+                        <td>". $dia ."</td>
+                        <td>". $row['entrada']."</td>
+                        <td>". $row['saida']." </td>
+                        <td class='invisible'>". $row['atividade']." </td>
+                        <td>". $row['horas']." </td>
+                    </tr>";
+                }
+                else // dias uteis;
+                {
+                    echo "
+                    <tr class='final-semana'>  
+                        <td>". $dia ."</td>
+                        <td>". $row['entrada']."</td>
+                        <td>". $row['saida']." </td>
+                        <td class='invisible'>". $row['atividade']." </td>
+                        <td>". $row['horas']." </td>
+                    </tr>";
+                }
+                
+                $totHoras += $row['horas'];
+            }
+
+            return $totHoras;
+        }
+        else
+        {
+            echo '<h2 class="msg-vazio">Sem horas!</h2>';
+        }
+    }
+
+
+
+
     // Verificar se a função calcular_salario já foi declarada
     if (!function_exists('calcular_salario')) {
         // Calcula todas as 220 horas foram feitas no mês;
@@ -224,6 +285,8 @@
             echo '<h2 class="msg-vazio">Sem horas!</h2>';
         }
     }
+
+
 
 
 
