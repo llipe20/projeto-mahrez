@@ -23,8 +23,8 @@
                 <td>Dia</td>
                 <td>Entrada</td>
                 <td>Saida</td>
-                <td class="invisible">Atividade</td>
                 <td>Horas</td>
+                <td>Extras</td>
             </tr>
             <?php 
                 montarTabela($_SESSION['id']);

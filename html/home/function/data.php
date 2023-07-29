@@ -40,7 +40,7 @@
                         <td>". $dia ."</td>
                         <td>". $row['entrada']."</td>
                         <td>". $row['saida']." </td>
-                        <td class='invisible'>". $row['atividade']." </td>
+                        <td>". $row['horas']." </td>
                         <td>". $row['horas']." </td>
                     </tr>";
                 }
@@ -51,7 +51,7 @@
                         <td>". $dia ."</td>
                         <td>". $row['entrada']."</td>
                         <td>". $row['saida']." </td>
-                        <td class='invisible'>". $row['atividade']." </td>
+                        <td>". $row['horas']." </td>
                         <td>". $row['horas']." </td>
                     </tr>";
                 }
