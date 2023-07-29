@@ -10,64 +10,82 @@
 <?php // FUNÇÕES ESPÉCIFICCAS PARA OS CODIGOS;
 
     // FUNÇÃO para pegar todos os registros de um usuário do mês e exibir os dias com link 
+   
     function montarTabela($id)
     {
         date_default_timezone_set('America/Sao_Paulo');
-
+    
         include '../../../php/conexao.php';
-
+    
         $mes_atual = intval(date('m'));
-
+    
+        // Montar consulta SQL para obter todos os registros do mês atual
         $sql = "SELECT * FROM folha WHERE usuario = $id AND MONTH(STR_TO_DATE(dia, '%Y-%m-%d')) = '$mes_atual' ORDER BY dia";
         $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0)
-        {
-           $totHoras = 0;
-
-            while ($row = mysqli_fetch_assoc($result)) 
-            {
-                $dia = date('d', strtotime($row['dia']));
-
-                $week = dia_semana(date ('d-m-Y',strtotime($row['dia'])));
-
-                // Separar o final de semana dos dis uteis;
-
-                if ($week == 6 or $week == 7)
-                {
-                    echo "
-                    <tr class='final-semana'>  
-                        <td>". $dia ."</td>
-                        <td>". $row['entrada']."</td>
-                        <td>". $row['saida']." </td>
-                        <td>". $row['horas']." </td>
-                        <td>". $row['horas']." </td>
-                    </tr>";
-                }
-                else // dias uteis;
-                {
-                    echo '
-                    <tr>  
-                        <td>'. $dia .'</td>
-                        <td>'. $row["entrada"].'</td>
-                        <td>'. $row["saida"].' </td>
-                        <td>'. $row["horas"].' </td>
-                        <td>'. $row["horas"].' </td>
-                    </tr>';
-                }
-                
-                $totHoras += $row['horas'];
-            }
-
-            return $totHoras;
+    
+        $registros_banco = array(); // Array para armazenar os registros do banco por dia
+    
+        while ($row = mysqli_fetch_assoc($result)) {
+            $dia = date('d', strtotime($row['dia']));
+            $registros_banco[$dia] = $row; // Armazena o registro do dia no array usando o dia como chave
         }
-        else
-        {
+    
+        // Exibir os registros da tabela para cada dia do mês
+        for ($i = 1; $i <= 30; $i++) {
+            $dia_com_zeros = sprintf("%02d", $i);
+            $registro_banco = isset($registros_banco[$dia_com_zeros]) ? $registros_banco[$dia_com_zeros] : null;
+    
+            echo '<tr>';
+            echo '<td>' . $dia_com_zeros . '</td>';
+    
+            if ($registro_banco !== null && $registro_banco['dia'] !== null) {
+                $week = dia_semana(date('d-m-Y', strtotime($registro_banco['dia'])));
+                if ($week == 6 || $week == 7) {
+                    echo "<td class='final-semana'>" . $registro_banco['entrada'] . "</td>";
+                    echo "<td class='final-semana'>" . $registro_banco['saida'] . "</td>";
+                    echo "<td class='final-semana'>" . $registro_banco['horas'] . "</td>";
+                    echo "<td class='final-semana'>" . $registro_banco['horas'] . "</td>";
+                } else {
+                    echo '<td>' . $registro_banco["entrada"] . '</td>';
+                    echo '<td>' . $registro_banco["saida"] . '</td>';
+                    echo '<td>' . $registro_banco["horas"] . '</td>';
+                    echo '<td>' . $registro_banco["horas"] . '</td>';
+                }
+            } else {
+                echo '<td></td>';
+                echo '<td></td>';
+                echo '<td></td>';
+                echo '<td></td>';
+            }
+    
+            echo '</tr>';
+        }
+    
+        if (mysqli_num_rows($result) == 0) {
+            // Caso não haja registros no banco para o mês atual, exibe a mensagem "Sem horas!"
+            // e completa a tabela com os dias sem registros
+            for ($i = 1; $i <= 30; $i++) {
+                $dia_com_zeros = sprintf("%02d", $i);
+                if (!isset($registros_banco[$dia_com_zeros])) {
+                    echo '<tr>';
+                    echo '<td>' . $dia_com_zeros . '</td>';
+                    echo '<td></td>';
+                    echo '<td></td>';
+                    echo '<td></td>';
+                    echo '<td></td>';
+                    echo '</tr>';
+                }
+            }
             echo '<h2 class="msg-vazio">Sem horas!</h2>';
         }
     }
+    
+    
+    
 
+    
 
+    
 
 
     // Verificar se a função calcular_salario já foi declarada
