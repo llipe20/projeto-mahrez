@@ -29,22 +29,11 @@
             {
                 $dia = date('d', strtotime($row['dia']));
 
-                $week = dia_semana($row['dia']);
+                $week = dia_semana(date ('d-m-Y',strtotime($row['dia'])));
 
                 // Separar o final de semana dos dis uteis;
 
-                if ($week != 6 or $week != 7)
-                {
-                    echo "
-                    <tr>  
-                        <td>". $dia ."</td>
-                        <td>". $row['entrada']."</td>
-                        <td>". $row['saida']." </td>
-                        <td>". $row['horas']." </td>
-                        <td>". $row['horas']." </td>
-                    </tr>";
-                }
-                else // dias uteis;
+                if ($week == 6 or $week == 7)
                 {
                     echo "
                     <tr class='final-semana'>  
@@ -54,6 +43,17 @@
                         <td>". $row['horas']." </td>
                         <td>". $row['horas']." </td>
                     </tr>";
+                }
+                else // dias uteis;
+                {
+                    echo '
+                    <tr>  
+                        <td>'. $dia .'</td>
+                        <td>'. $row["entrada"].'</td>
+                        <td>'. $row["saida"].' </td>
+                        <td>'. $row["horas"].' </td>
+                        <td>'. $row["horas"].' </td>
+                    </tr>';
                 }
                 
                 $totHoras += $row['horas'];
