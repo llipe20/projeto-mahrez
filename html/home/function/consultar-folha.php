@@ -29,9 +29,18 @@
             <?php 
                 montarTabela($_SESSION['id']);
             ?>
+
+            
+
         </table>
+        <div id="final-row">
+                           
+            <?php echo '<p id="final-hora">Total: '.$_SESSION['tot-hora'].'</p>';?>
+                        
+        </div>
 
         <div class="box-voltar">
+            
             <a id="voltar-home-modponto" class="link-voltar" href="../home.php">Voltar</a>
         </div>
         

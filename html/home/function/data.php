@@ -9,9 +9,27 @@
 
 <?php // FUNÇÕES ESPÉCIFICCAS PARA OS CODIGOS;
 
+function calculadorHoras($hora,$data)
+{
+
+    if ($data == 6 or $data == 7 )
+    {
+        return $hora;
+    }
+    elseif ($data == 5)
+    {
+        $extra = $hora - 8;
+        return $extra;
+    }
+    else
+    {
+        $extra = $hora - 9;
+        return $extra;
+    }
+}
+
     // FUNÇÃO para pegar todos os registros de um usuário do mês e exibir os dias com link 
    
-
     function montarTabela($id)
     {
         date_default_timezone_set('America/Sao_Paulo');
@@ -30,36 +48,58 @@
             $dia = date('d', strtotime($row['dia']));
             $registros_banco[$dia] = $row; // Armazena o registro do dia no array usando o dia como chave
         }
-    
-        // Exibir os registros da tabela para cada dia do mês
-        for ($i = 1; $i <= 30; $i++) {
+        
+        $totHora = 0;
+        
+         // Exibir os registros da tabela para cada dia do mês
+         for ($i = 1; $i <= 30; $i++) 
+         {
             $dia_com_zeros = sprintf("%02d", $i);
             $registro_banco = isset($registros_banco[$dia_com_zeros]) ? $registros_banco[$dia_com_zeros] : null;
     
-            echo '<tr>';
-            echo '<td>' . $dia_com_zeros . '</td>';
-    
-            if ($registro_banco !== null && $registro_banco['dia'] !== null) {
+            
+
+            if ($registro_banco !== null && $registro_banco['dia'] !== null) 
+            {
+                
                 $week = dia_semana(date('d-m-Y', strtotime($registro_banco['dia'])));
-                if ($week == 6 || $week == 7) {
+                $extra = calculadorHoras($registro_banco['horas'], $week);
+
+                if ($week == 6 || $week == 7) 
+                {
+                    echo '<tr>';
+                    echo '<td class="final-semana">' . $dia_com_zeros . '</td>';
                     echo "<td class='final-semana'>" . $registro_banco['entrada'] . "</td>";
                     echo "<td class='final-semana'>" . $registro_banco['saida'] . "</td>";
                     echo "<td class='final-semana'>" . $registro_banco['horas'] . "</td>";
-                    echo "<td class='final-semana'>" . $registro_banco['horas'] . "</td>";
-                } else {
+                    echo "<td class='final-semana'>" . $extra . "</td>";
+                    echo '</tr>';
+
+                    $totHora = $totHora + $extra;
+                } 
+                else 
+                {
+                    echo '<tr>';
+                    echo '<td>' . $dia_com_zeros . '</td>';
                     echo '<td>' . $registro_banco["entrada"] . '</td>';
                     echo '<td>' . $registro_banco["saida"] . '</td>';
                     echo '<td>' . $registro_banco["horas"] . '</td>';
-                    echo '<td>' . $registro_banco["horas"] . '</td>';
+                    echo '<td>' . $extra . '</td>';
+                    echo '</tr>';
+
+                    $totHora = $totHora + $extra;
                 }
-            } else {
+            } 
+            else
+            {
+                echo '<tr>';
+                echo '<td>' . $dia_com_zeros . '</td>';
                 echo '<td>-</td>';
                 echo '<td>-</td>';
                 echo '<td>-</td>';
                 echo '<td>-</td>';
+                echo '</tr>';
             }
-    
-            echo '</tr>';
         }
     
         if (mysqli_num_rows($result) == 0) {
@@ -79,8 +119,15 @@
             }
             echo '<h2 class="msg-vazio">Sem horas!</h2>';
         }
+
+        $_SESSION['tot-hora'] = $totHora;
     }
     
+
+
+
+
+
     // Verificar se a função calcular_salario já foi declarada
     if (!function_exists('calcular_salario')) {
         // Calcula todas as 220 horas foram feitas no mês;
