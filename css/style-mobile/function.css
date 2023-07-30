@@ -77,6 +77,8 @@
 }
 
 #box-header-folha {
+    flex-direction: row;
+    justify-content: space-around;
     height: 50px;
     width: 90vw;
     border: none;
@@ -84,9 +86,12 @@
 }
 
 .box-header-fixo {  /* CAIXA DE TOT HORA NA PAG DE HORA EXTRA*/
+    flex-direction: row;
+    justify-content: space-around;
     width: 100vw;
     height: 110px;
     margin: 0px;
+    padding: 15px 0px;
     border-radius: 0px;
 }
 
@@ -289,7 +294,6 @@ span {
     padding: 15px;
     margin-left: 40px;
     font: bold 0.95em var(--font-texto);
-    box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.347);
     border: 2px solid rgba(0, 0, 106, 0.742);
 }
 
@@ -446,4 +450,16 @@ td {
     font-size: 1em;
     font-family: Arial, Helvetica, sans-serif;
     padding-right: 15px;
+}
+
+/* DIALOG */
+
+.erro {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: red;
+    color: white;
+}
+
+.material-symbols-outlined {
+    color: white;
 }

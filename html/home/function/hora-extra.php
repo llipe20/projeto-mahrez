@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- EMOJS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
     <link rel="stylesheet" href="../../../css/style-desktop/function.css" media="screen and (min-width: 801px)">
@@ -39,10 +44,12 @@
         }
     </script>
     <?php 
+
         function catador_hora_extras()
         {
             include './data.php';
             include '../../../php/conexao.php';
+            date_default_timezone_set('America/Sao_Paulo');
 
             $sql = "SELECT * FROM folha WHERE usuario = $_SESSION[id] AND horas < 8 OR horas > 9 ORDER BY dia";
             $result = mysqli_query($conn, $sql);
@@ -109,11 +116,31 @@
 
                 echo '<h2 class="msg-vazio">Sem horas extras!</h2>';
             }
+
+            $mes = date('m');
+            $_SESSION['mes'] = detector_mes($mes);
         }
     ?>
     <div class="box-principal-hora-extra">
         <div class="box-header-fixo" id="box-fixo">
-            <h2 class="titulo"><?php echo 'Total de horas extras: '.$_SESSION['totHoras']?></h2>
+
+            <span class="material-symbols-outlined">
+                chevron_left
+            </span>
+
+            <div>
+                <?php echo '<h2 class="titulo">'.$_SESSION['mes'].'</h2>';?>
+        
+                <h2 class="titulo">
+                    <?php echo 'Horas extras: '.$_SESSION['totHoras']?>
+                </h2>
+            </div>
+            
+            <span class="material-symbols-outlined">
+                chevron_right
+            </span>
+
+            
         </div>
 
         <div class="box-main-pai">

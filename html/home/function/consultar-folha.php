@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../../css/style-mobile/all.css" media="all">
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
      <link rel="stylesheet" href="../../../css/style-desktop/function.css" media="screen and (min-width: 801px)">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Document</title>
 </head>
 <body id="folha">
@@ -14,7 +15,14 @@
     <div class="box-principal-folha">
         <header id="box-header-folha" class="box-header">
 
+        <span class="material-symbols-outlined">
+            chevron_left
+        </span>
             <?php date_default_timezone_set('America/Sao_Paulo'); echo '<h2 class="titulo">'.detector_mes(date('m')).'</h2>';?>
+
+        <span class="material-symbols-outlined">
+            chevron_right
+        </span>
 
         </header>
 
@@ -29,9 +37,6 @@
             <?php 
                 montarTabela($_SESSION['id']);
             ?>
-
-            
-
         </table>
         <div id="final-row">
                            

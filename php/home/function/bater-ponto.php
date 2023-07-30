@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../../../java-script/function-button.js"></script>
 </head>
 <body>
     <?php  // CODIGO DE PROCESSAMENTO PARA SALVAR OS DADOS DO PONTO NO BANCO 
@@ -55,7 +56,7 @@
 
         if (empty($hr_entrada) or empty($hr_saida) or empty($local) or empty($equipe) or empty($desc)) 
         {
-            echo '<script>alert("Preencha os dados!")</script>';
+            echo '<script>alert("Preencha os campos!")</script>'; 
             echo "<script>window.location.href = '../../../html/home/function/bater-ponto-html.php'</script>"; 
         }
         else

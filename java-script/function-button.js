@@ -2,6 +2,23 @@
 // ARQUIVO DE FUNÇÕES DE PARA BOTÕES - direcionando usuário
 
 
+
+// Janelas moldais;
+
+function moldal(conteudo, classe) 
+{
+    let dialog = document.querySelector("dialog");
+    let paragrafo = document.getElementById("paragrafo");
+    paragrafo.textContent = conteudo;
+    dialog.classList.add(classe);
+    dialog.showMoldal();
+
+    setTimeout (function() {
+        dialog.close();
+    }, 2000)
+}
+
+
     // VAI PARA UMA PAG PHP QUE DESTROI AS SESSÕES E DPS PARA PAG DE LOGIN
 
 function toggleContent(iteracao) 
