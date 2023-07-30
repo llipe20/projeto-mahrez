@@ -470,3 +470,11 @@ td {
 .material-symbols-outlined {
     color: white;
 }
+
+#form {
+    background-color: #01092D;
+    height: auto;
+    width: auto;
+    margin: 10px;
+    padding: 10px;
+}

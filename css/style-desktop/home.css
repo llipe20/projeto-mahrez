@@ -123,6 +123,10 @@ h2 { /* Ola, seja bem vindo */
     margin-bottom: 10px;
 }
 
+.function:hover {
+    background-color:#0428BB;
+}
+
 .title-function {
     font: bold 1.4em var(--font-principal);
     color: rgba(255, 255, 255, 0.882);

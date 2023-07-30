@@ -1,7 +1,21 @@
 
 // ARQUIVO DE FUNÇÕES DE PARA BOTÕES - direcionando usuário
 
+// Função de voltar no mês anterior;
 
+function before(mes)
+{
+    let valor = mes - 1;
+
+    if (valor == 0)
+    {
+        valor = 12;
+    }
+console.log(valor); 
+return valor;
+}
+   
+    
 
 // Janelas moldais;
 

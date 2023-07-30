@@ -367,8 +367,10 @@ span {
 }
 
 .msg-vazio {
+    background-color: var(--cor-principal);
     font: bold 1.1em var(--font-texto);
-    color: var(--cor-principal);
+    color: white;
+    padding-bottom: 10px;
     margin: auto;
 }
 
@@ -462,4 +464,16 @@ td {
 
 .material-symbols-outlined {
     color: white;
+}
+
+#mes-selecionado {
+    background-color: var(--cor-principal);
+    color: white;
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+    margin: 10px;
+    padding: 10px
 }

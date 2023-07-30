@@ -30,13 +30,13 @@ function calculadorHoras($hora,$data)
 
     // FUNÇÃO para pegar todos os registros de um usuário do mês e exibir os dias com link 
    
-    function montarTabela($id)
+    function montarTabela($id, $mes)
     {
         date_default_timezone_set('America/Sao_Paulo');
     
         include '../../../php/conexao.php';
     
-        $mes_atual = intval(date('m'));
+        $mes_atual = $mes;
     
         // Montar consulta SQL para obter todos os registros do mês atual
         $sql = "SELECT * FROM folha WHERE usuario = $id AND MONTH(STR_TO_DATE(dia, '%Y-%m-%d')) = '$mes_atual' ORDER BY dia";
