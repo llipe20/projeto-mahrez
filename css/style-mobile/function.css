@@ -80,7 +80,7 @@
     height: 50px;
     width: 90vw;
     border: none;
-    padding-bottom: 10px;
+    padding: 10px 0;
 }
 
 .box-header-fixo {  /* CAIXA DE TOT HORA NA PAG DE HORA EXTRA*/
@@ -155,6 +155,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 
 .box-main-pai {  /* CAIXA que organiza as caxias das horas extras*/
     justify-content: space-evenly;
+    background-color: white;
     box-shadow: none;
     border: none;
     align-items: center;
@@ -267,7 +268,7 @@ span {
 .input-text, .input-texto {
     background-color: aliceblue;
     height: 35px;
-    width: 55vw;
+    width: 45vw;
     padding-left: 10px;
     border: none;
     border-bottom: 2px solid rgba(0, 0, 106, 0.742);
@@ -275,7 +276,7 @@ span {
 }
 
 .input-texto {
-    width: 40vw;
+    width: 45vw;
 }
 
 
@@ -297,7 +298,7 @@ span {
 }
 
                         /* PSEUDO CLASSE NOS INPUT */
-.input-text:focus, .input-textarea:focus, .input-time:focus {    
+.input-text:focus, .input-textarea-equipe:focus, .input-textarea-desc:focus, .input-time:focus {    
     outline: none;
 }
 
@@ -407,6 +408,7 @@ tr {
 td {
     height: 35px;
     border: 2px solid var(--cor-principal);
+    width: 10vw;
 }
 
 .invisible {
