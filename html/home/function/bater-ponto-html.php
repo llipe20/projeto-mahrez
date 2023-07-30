@@ -46,13 +46,13 @@
                     <!-- COLABORADORES DA ÁREA -->
                     <div class="box-textarea-equipe">
                         <label for="equipe">Colaboradores:</label>
-                        <textarea class="input-textarea-equipe" id="equipe" type="text" name="equipe" rows="2" cols="51" placeholder="ex: Felipe Mello..."></textarea>
+                        <textarea class="input-textarea-equipe" id="equipe" type="text" name="equipe" rows="2" cols="51" placeholder="ex: Colaborador 1 ... "></textarea>
                     </div>
                     
                     <!-- DESCRIÇÃO DA ATIV -->
                     <div class="box-textarea-desc">
                         <label for="desc">Descrição da atividade:</label>
-                        <textarea class="input-textarea-desc" id="desc" name="desc" rows="6" cols="51" placeholder="ex: Aperta parafuros..."></textarea>
+                        <textarea class="input-textarea-desc" id="desc" name="desc" rows="6" cols="51" placeholder="ex: Organizar materiais ..."></textarea>
                     </div>
                     
                     <div class="box-button">
