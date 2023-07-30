@@ -72,7 +72,6 @@
     background-color: var(--cor-principal);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.484);
     border-radius: 12px 12px 0px 0px;
-    border: 2px solid var(--cor-principal);
     height: 150px;
     width: 85vw;
 }
@@ -93,10 +92,12 @@
 
 .box-month {
     height: 90px;
+    padding: 0 10px;
 }
 
 .box-header-hora-extra {  /* HORA EXTRA */
-    height: 120px;
+    width: 80vw;
+    height: 90px;
     justify-content: space-evenly;
     align-items: center;
     padding: 10px 0px;
@@ -131,10 +132,9 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     flex-direction: column;
     justify-content: space-around;
     align-items: start;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.484);
-    background-color:white;
+    box-shadow: 0.5px 1px 1px rgba(0, 0, 0, 0.255);
+    background-color: aliceblue;
     border-radius: 0px 0px 12px 12px;
-    border: 2px solid var(--cor-principal);
     padding-top: 25px;
     height: 670px;
     width: 85vw;
@@ -165,17 +165,19 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 }
 
 .box-conteudo-dia {
+    background-color: aliceblue;
     flex-flow: row wrap;
     align-content: flex-start;
     column-gap: 3px;
     row-gap: 18px;
     justify-content: center;
-    padding-bottom: 25px;
+    padding: 25px 10px 25px 10px;
     height: auto;
 }
 
 .box-conteudo-hora-extra {   /* HORA EXTRA */
     height: 500px;
+    width: 80vw;
     padding: 15px 0px;
     display: none;
 }
@@ -207,7 +209,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
 }
 
 .box-text {
-    width: 80vw;
+    width: 75vw;
 }
 
         /* caixa dos input TEXTAREA */
@@ -217,7 +219,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     justify-content: space-between;
     align-items: start;
     height: 152px;
-    width: 80vw;
+    width: 75vw;
 }
 
 .box-textarea-equipe {
@@ -232,9 +234,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
         /* input TIME */
 .input-time {
     height: 30px;
-    width: 25vw;
+    width: 20vw;
     text-align: center;
     border: none;
+    background-color: aliceblue;
     border-bottom: 2px solid rgba(0, 0, 106, 0.742);
     border-radius: 5px;
     font-size: 1.2em;
@@ -262,8 +265,9 @@ span {
 
         /* input TEXT */
 .input-text, .input-texto {
+    background-color: aliceblue;
     height: 35px;
-    width: 60vw;
+    width: 55vw;
     padding-left: 10px;
     border: none;
     border-bottom: 2px solid rgba(0, 0, 106, 0.742);
@@ -271,15 +275,16 @@ span {
 }
 
 .input-texto {
-    width: 45vw;
+    width: 40vw;
 }
 
 
         /* input TEXTAREA */
 .input-textarea-equipe, .input-textarea-desc {
+    background-color: aliceblue;
     border-radius: 10px;
     height: 40px;
-    width: 67vw;
+    width: 60vw;
     padding: 15px;
     margin-left: 40px;
     font: bold 0.95em var(--font-texto);

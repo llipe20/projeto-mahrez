@@ -153,7 +153,7 @@ h2 { /* Ola, seja bem vindo */
     justify-content: space-evenly;
     align-items: center;
     height: auto;
-    width: 22vw;
+    width: auto;
     padding: 25px;
 }
 

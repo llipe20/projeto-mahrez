@@ -73,7 +73,6 @@
     background-color: var(--cor-principal);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.414);
     border-radius: 12px 12px 0px 0px;
-    border: 2px solid var(--cor-principal);
     height: 150px;
     width: 80vw;
     max-width: 800px;
@@ -131,7 +130,6 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.467);
     background-color:white;
     border-radius: 0px 0px 12px 12px;
-    border: 2px solid var(--cor-principal);
     padding-top: 15px;
     height: 690px;
     width: 80vw;
