@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../../../css/style-mobile/all.css" media="all">
     <link rel="stylesheet" href="../../../css/style-mobile/function.css" media="screen and (max-width: 800px)">
     <link rel="stylesheet" href="../../../css/style-desktop/function.css" media="screen and (min-width: 801px)">
+    <link rel="stylesheet" href="../../../css/impresso.css" media="print">
+
+    <!-- EMOJIS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
     <script src="../../../java-script/function-button.js"></script>
     <title>Document</title>
 </head>

@@ -1,0 +1,87 @@
+
+.box-voltar,
+#final-row,
+.link-voltar, #form {
+    display: none;
+}
+
+/* Estilo de tabelas */
+
+.box-principal-folha {
+    height: auto;
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 98vw;
+    height: auto;
+    padding-top: 10px;
+}
+
+.th {
+    background-color: white;
+    color: black;
+}
+
+tr {
+    text-align: center;
+    height: 20px;
+    border: 2px solid black;
+    width: auto;
+    padding: 5px;
+    color: black;
+}
+
+td {
+    height: 25px;
+    border: 2px solid black;
+   
+}
+
+
+.final-semana {
+    background-color: rgb(65, 119, 58);
+    color: black;
+}
+
+#final-row {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: black;
+    border-radius: 0 0 10px 10px;
+    height: 50px;
+    width: 90vw;
+    max-width: 650px;
+}
+
+#final-hora {
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 15px;
+}
+
+/* Estilizar mensagem "Sem horas!" */
+.msg-vazio {
+    font-weight: bold;
+    color: #ff0000;
+    margin-top: 20px;
+}
+
+#box-header-folha {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50px;
+    margin: 15px 0;
+}
+
+.titulo {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+

@@ -63,6 +63,9 @@
         </nav>
     </main>
     <footer class="box-rodape">
+
+        <img id="logo" src="../imagem/logo.png" alt="logo-direitos-humanos">
+
         <div class="box-link">
             <a class="link-rodape" href="https://instagram.com/https_llpe" target="_blank">
             @ instagram

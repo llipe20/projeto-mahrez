@@ -471,10 +471,14 @@ td {
     color: white;
 }
 
-#form {
-    background-color: #01092D;
+#mes-selecionado {
+    background-color: var(--cor-principal);
+    color: white;
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
     height: auto;
     width: auto;
     margin: 10px;
-    padding: 10px;
+    padding: 10px
 }

@@ -134,11 +134,10 @@ h2 { /* Ola, seja bem vindo */
 .box-rodape {
     background-color: var(--cor-rodape);
     display: flex;
-    flex-direction: column;
     align-items: center;
     box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.496);
-    justify-items: center;
-    height: auto;
+    justify-content: space-evenly;
+    height: 150px;
 }
 
 .title-rodape {
@@ -152,9 +151,10 @@ h2 { /* Ola, seja bem vindo */
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: auto;
+    border-left: 2px solid #4755937c;
+    height: 50px;
     width: auto;
-    padding: 25px;
+    padding: 25px 25px 25px 30px;
 }
 
 .link-rodape {
@@ -163,4 +163,11 @@ h2 { /* Ola, seja bem vindo */
     text-decoration: none;
     padding-bottom: 10px;
 }
+
+#logo {
+    height: 100px;
+    width: 100px;
+    opacity: 30%;
+}
+
 
