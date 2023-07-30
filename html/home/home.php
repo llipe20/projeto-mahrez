@@ -63,19 +63,17 @@
         </nav>
     </main>
     <footer class="box-rodape">
-        <h2 class="title-rodape">POWERED BY LLPE</h2>
-
         <div class="box-link">
             <a class="link-rodape" href="https://instagram.com/https_llpe" target="_blank">
-            <img class="photo-rodape" src="../imagem/instagram.png" alt="instagram">
-            </a>
-
-            <a class="link-rodape" href="https://github.com/llipe20" target="_blank">
-                <img class="photo-rodape" src="../imagem/github.png" alt="github">
+            @ instagram
             </a>
 
             <a class="link-rodape" href="https://www.youtube.com/@orochidois1692" target="_blank">
-                <img class="photo-rodape" src="../imagem/youtube.png" alt="youtube">
+               # youtube
+            </a>
+
+            <a class="link-rodape" href="https://github.com/llipe20" target="_blank">
+              ¨ gitHub
             </a>
         </div>
     </footer>

@@ -19,7 +19,7 @@
 
 :root {
 
-    --cor-principal:  #1C45EB; 
+    --cor-principal: rgb(0, 0, 106);
     --cor-secundaria: #0428BB;
     --cor-rodape: #01092D;
    
@@ -73,6 +73,7 @@
     background-color: var(--cor-principal);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.414);
     border-radius: 12px 12px 0px 0px;
+    border: 2px solid var(--cor-principal);
     height: 150px;
     width: 80vw;
     max-width: 800px;
@@ -130,6 +131,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.467);
     background-color:white;
     border-radius: 0px 0px 12px 12px;
+    border: 2px solid var(--cor-principal);
     padding-top: 15px;
     height: 690px;
     width: 80vw;
@@ -157,6 +159,7 @@ h1, h2, .titulo, #month, .sub-titulo-set {
     row-gap: 30px;
     padding-top: 30px;
     width: 90vw;
+    border: none;
     height: auto;
 }
 
@@ -236,7 +239,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     max-width: 200px;
     text-align: center;
     border: none;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.338);
+    border-bottom: 2px solid var(--cor-principal);
     font-size: 1.2em;
 }
 
@@ -267,7 +270,7 @@ span {
     max-width: 500px;
     padding-left: 10px;
     border: none;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.338);
+    border-bottom: 2px solid var(--cor-principal);
     font-size: 1em;
 }
 
@@ -288,7 +291,7 @@ span {
     font: bold 0.95em var(--font-texto);
     box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.347);
     border: none;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.338);
+    border: 2px solid var(--cor-principal);
 }
 
 .input-textarea-desc {
@@ -383,7 +386,7 @@ body#folha {
 table {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1em;
-    border: 2px solid blue;
+    border: 2px solid var(--cor-principal);
     border-collapse: collapse;
     width: 90vw;
     max-width: 650px; 
@@ -392,22 +395,22 @@ table {
 }
 
 .th {
-    background-color: #0528b3;
+    background-color: var(--cor-principal);
     color: white;
 }
 
 tr {
     text-align: center;
     height: 30px;
-    border: 2px solid blue;
+    border: 2px solid var(--cor-principal);
     width: auto;
     padding: 5px;
-    color: blue
+    color: var(--cor-principal);
 }
 
 td {
     height: 35px;
-    border: 2px solid blue;
+    border: 2px solid var(--cor-principal);
    
 }
 
@@ -416,7 +419,7 @@ td {
 }
 
 .final-semana {
-    background-color:rgb(0, 0, 106);
+    background-color: rgba(0, 128, 0, 0.775);
     color: white;
 }
 
@@ -433,12 +436,13 @@ td {
     height: 50px;
     width: 90vw;
     max-width: 650px;
+    border: none;
     padding-bottom: 10px;
 }
 
 
 #final-row {
-    background-color: #0528b3;
+    background-color: var(--cor-principal);
     display: flex;
     align-items: center;
     justify-content: end;
