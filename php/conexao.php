@@ -3,10 +3,10 @@
 
     // CONEXÃO COM O BANCO DE DADOS COM MYSQLI PROCEDURAL;
 
-    $server = 'sql111.infinityfree.com';
-    $user = 'if0_34721939';
-    $password = '3plpx19RjAxS';
-    $database = 'if0_34721939_mahrez_banco';
+    $server = 'localhost';
+    $user = 'root';
+    $password = '';
+    $database = 'mahrez';
 
     $conn = mysqli_connect($server,$user,$password,$database);
 
