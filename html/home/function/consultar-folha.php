@@ -52,8 +52,9 @@
             chevron_left
         </span>
             <?php 
-            date_default_timezone_set('America/Sao_Paulo'); 
-            echo '<h2 class="titulo">'.detector_mes(isset($_POST['mes-selecionado']) ? $_POST['mes-selecionado'] : date('m')).'</h2>';
+                date_default_timezone_set('America/Sao_Paulo'); 
+                echo 
+                    '<h2 class="titulo">'.detector_mes(isset($_POST['mes-selecionado']) ? $_POST['mes-selecionado'] : date('m')).'</h2>';
             ?>
 
         <span onclick="after()" class="material-symbols-outlined">
