@@ -79,15 +79,23 @@
 }
 
 .box-header-fixo {  /* CAIXA DE TOT HORA NA PAG DE HORA EXTRA*/
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    column-gap: 100px;
-    width: 100vw;
-    height: 110px;
+    min-width: 100vw;
+    height: 120px;
     margin: 0px;
-    max-width: 100vw;
+    padding: 15px 0px;
     border-radius: 0px;
 }
+
+.min-box-header-fixo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .box-month {
     height: 90px;
@@ -305,6 +313,16 @@ span {
                         /* PSEUDO CLASSE NOS INPUT */
 .input-text:focus, .input-textarea-equipe:focus, .input-textarea-desc:focus, .input-time:focus {    
     outline: none;
+}
+
+.input-titulo {
+    background-color: var(--cor-principal);
+    color: white;
+    height: 45px;
+    width: 45vw;
+    text-align: center;
+    border: none;
+    font-size: 1.5em;
 }
 
         /* BOTÕEOS */

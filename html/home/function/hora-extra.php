@@ -44,14 +44,14 @@
         }
     </script>
     <?php 
-
-        function catador_hora_extras()
+        function catador_hora_extras($id, $mes)
         {
             include './data.php';
             include '../../../php/conexao.php';
             date_default_timezone_set('America/Sao_Paulo');
 
-            $sql = "SELECT * FROM folha WHERE usuario = $_SESSION[id] AND horas < 8 OR horas > 9 ORDER BY dia";
+            $sql = "SELECT * FROM folha WHERE usuario = $id AND horas < 8 OR horas > 9 AND horas > 0 ORDER BY dia";
+
             $result = mysqli_query($conn, $sql);
 
             $tot_horas = 0;
@@ -63,52 +63,63 @@
                     $data = date_create($dados['dia']);
                     $data_banco = date_format($data, ' d . m');
 
-                    // pegando a data do banco para recalcuular o valor da hora;
-                  
-                    $dia = dia_semana($dados['dia']);
+                    // Fazer verificação para pegar apenas os dados do mês atual
+                    $mes_banco = date_format($data, 'm');
+                    $mes_atual = $mes;
 
-                    if ($dia != 5 and $dia != 6 and $dia != 7)   // SE TRABALHAR NOS DIAS UTEIS
+                    if ($mes_atual == $mes_banco)
                     {
-                        $hora_extra = $dados['horas'] - 9;
-                    }
-                    elseif ($dia == 5) // SE TRABALHAR NA SEXTA
-                    {
-                        $hora_extra = $dados['horas'] - 8;
-                    }
-                    else // FINAIS DE SEMANA
-                    {
-                        $hora_extra = $dados['horas'];
-                    }
+                        // pegando a data do banco para recalcuular o valor da hora;
+                    
+                        $dia = dia_semana($dados['dia']);
 
-                    echo '
-                    <div class="box-box-hora-extra">
-                        <header id="header-'.$dados['cod'].'" class="box-header-hora-extra">
-                            <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
-                            <span id="'.$dados['cod'].'" class="material-icons">expand_more</span>
-                        </header>
-                
-                        <div id="conteudo-'.$dados['cod'].'" class="box-conteudo-hora-extra">
-                
-                            <p class="p-hora-extra">Hora de entrada: '.$dados['entrada'].'</p>
-                
-                            <p class="p-hora-extra">Hora de entrada: '.$dados['saida'].'</p>
-                
-                            <p class="p-hora-extra">Atividade: '.$dados['atividade'].'</p>
-                
-                            <p class="p-hora-extra">Equipe: '.$dados['equipe'].'</p>
-                
-                            <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
+                        if ($dia != 5 and $dia != 6 and $dia != 7)   // SE TRABALHAR NOS DIAS UTEIS
+                        {
+                            $hora_extra = $dados['horas'] - 9;
+                        }
+                        elseif ($dia == 5) // SE TRABALHAR NA SEXTA
+                        {
+                            $hora_extra = $dados['horas'] - 8;
+                        }
+                        else // FINAIS DE SEMANA
+                        {
+                            $hora_extra = $dados['horas'];
+                        }
 
-                            <p id="hora-'.$dados['cod'].'" class="p-hora-extra">Horas ganha: '.$hora_extra.'</p>
-                        </div>
-                    </div>';
-                   
+                        echo '
+                        <div class="box-box-hora-extra">
+                            <header id="header-'.$dados['cod'].'" class="box-header-hora-extra">
+                                <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
+                                <span id="'.$dados['cod'].'" class="material-icons">expand_more</span>
+                            </header>
+                    
+                            <div id="conteudo-'.$dados['cod'].'" class="box-conteudo-hora-extra">
+                    
+                                <p class="p-hora-extra">Hora de entrada: '.$dados['entrada'].'</p>
+                    
+                                <p class="p-hora-extra">Hora de entrada: '.$dados['saida'].'</p>
+                    
+                                <p class="p-hora-extra">Atividade: '.$dados['atividade'].'</p>
+                    
+                                <p class="p-hora-extra">Equipe: '.$dados['equipe'].'</p>
+                    
+                                <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
 
-                    $tot_horas += $hora_extra;
-                    $temHora = true;
+                                <p id="hora-'.$dados['cod'].'" class="p-hora-extra">Horas ganha: '.$hora_extra.'</p>
+                            </div>
+                        </div>';
+
+                        $tot_horas += $hora_extra;
+                        $temHora = true;
+                    }
                 }
-                    $_SESSION['totHoras'] = $tot_horas;
                 
+                $_SESSION['totHoras'] = $tot_horas;
+
+                if ($tot_horas == 0)
+                {
+                    echo '<h2 class="msg-vazio">Sem horas extras!</h2>';
+                }
             }
             else
             {
@@ -128,23 +139,41 @@
                 chevron_left
             </span>
 
-            <div>
-                <?php echo '<h2 class="titulo">'.$_SESSION['mes'].'</h2>';?>
+            <div class="min-box-header-fixo">
+
+<!-- INPUT -->  
+                <?php echo '
+                        <form id="form1" action="" method="POST">
+
+                            <input id="output" name="output" class="input-titulo" type="text" value="'. $_SESSION['mes'].'" oninput="document.getElementById(\'form1\').submit();" disabled>
+
+                        </form>';
+                ?>
         
                 <h2 class="titulo">
-                    <?php echo 'Horas extras: '.$_SESSION['totHoras']?>
+                    <?php 
+                        if (isset($_SESSION['totHoras']))
+                        { 
+                            echo 'Horas extras: '.$_SESSION['totHoras'];
+                        }
+                        else
+                        {
+                            echo 'Horas extras: ';
+                        }
+                    ?>
                 </h2>
             </div>
             
             <span class="material-symbols-outlined">
                 chevron_right
             </span>
-
-            
         </div>
 
         <div class="box-main-pai">
-            <?php catador_hora_extras($_SESSION['id']);?>
+
+            <?php 
+                $month = 8;
+                catador_hora_extras($_SESSION['id'], $month);?>
         </div>
 
         <a id="voltar-hora-extra" class="link-voltar" href="../../home/home.php">Voltar</a>
@@ -160,6 +189,12 @@
                     toggleContent(id);
                 });
             });
+
+
+        // Lidar com o valor inicial assim que a página for carregada
+
+
+
     </script>
 </body>
 </html>
