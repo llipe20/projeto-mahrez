@@ -81,11 +81,25 @@
 
                 if ($dia == 6)   // SE TRABALHAR NO SABADO
                 {
-                    $hora_extra = (($time_saida - $time_entrada - 3600) / 3600)* 1.5;
+                    $h = $time_saida - $time_entrada;
+
+                    if ($h > (3600 * 4))
+                    {
+                        $hr = $h - 3600;
+                    }
+
+                    $hora_extra = ($hr / 3600) * 1.5;
                 }
                 elseif ($dia == 7) // SE TRABALHAR NO DOMINGO
                 {
-                    $hora_extra = (($time_saida - $time_entrada - 3600) / 3600)* 2;
+                    $h = $time_saida - $time_entrada;
+
+                    if ($h > (3600 * 4))
+                    {
+                        $hr = $h - 3600;
+                    }
+
+                    $hora_extra = ($hr / 3600) * 2;
                 }
                 else // DIAS UTIEIS
                 {
