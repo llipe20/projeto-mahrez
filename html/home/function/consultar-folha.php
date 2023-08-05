@@ -69,6 +69,7 @@
                 <td>Saida</td>
                 <td>Horas</td>
                 <td>Extras</td>
+                <td>Negativas</td>
             </tr>
             <?php 
                 montarTabela($_SESSION['id'], isset($_POST['mes-selecionado']) ? $_POST['mes-selecionado'] : date('m'));

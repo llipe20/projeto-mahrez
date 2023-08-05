@@ -11,20 +11,28 @@
 
 function calculadorHoras($hora,$data)
 {
+    if ($hora > 0)
+    {
+        if ($data == 6 or $data == 7 )
+        {
+            return $hora;
+        }
+        elseif ($data == 5)
+        {
+            $extra = $hora - 8;
 
-    if ($data == 6 or $data == 7 )
-    {
-        return $hora;
-    }
-    elseif ($data == 5)
-    {
-        $extra = $hora - 8;
-        return $extra;
+            return $extra;
+        }
+        else
+        {
+            $extra = $hora - 9;
+
+            return $extra;
+        }
     }
     else
     {
-        $extra = $hora - 9;
-        return $extra;
+        return $hora;
     }
 }
 
@@ -44,7 +52,8 @@ function calculadorHoras($hora,$data)
     
         $registros_banco = array(); // Array para armazenar os registros do banco por dia
     
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) 
+        {
             $dia = date('d', strtotime($row['dia']));
             $registros_banco[$dia] = $row; // Armazena o registro do dia no array usando o dia como chave
         }
@@ -55,16 +64,32 @@ function calculadorHoras($hora,$data)
          for ($i = 1; $i <= 30; $i++) 
          {
             $dia_com_zeros = sprintf("%02d", $i);
-            $registro_banco = isset($registros_banco[$dia_com_zeros]) ? $registros_banco[$dia_com_zeros] : null;
-    
-            
+            $registro_banco = isset($registros_banco[$dia_com_zeros]) ? $registros_banco[$dia_com_zeros] : null;  
 
             if ($registro_banco !== null && $registro_banco['dia'] !== null) 
             {
-                
                 $week = dia_semana(date('d-m-Y', strtotime($registro_banco['dia'])));
-                $extra = calculadorHoras($registro_banco['horas'], $week);
 
+                // VERIFICAÇÃO se hora é negativa ou é extra;
+                $value = calculadorHoras($registro_banco['horas'], $week);
+               
+                if ($value > 0)
+                {
+                    $extra = $value;
+                    $negativa = 0;
+                }
+                elseif ($value < 0)
+                {
+                    $negativa = $value;
+                    $extra = 0;
+                }
+                else
+                {
+                    $negativa = 0;
+                    $extra = 0;
+                }
+
+                // Verificando qual o dia da semana;
                 if ($week == 6 || $week == 7) 
                 {
                     echo '<tr>';
@@ -73,6 +98,7 @@ function calculadorHoras($hora,$data)
                     echo "<td class='final-semana'>" . $registro_banco['saida'] . "</td>";
                     echo "<td class='final-semana'>" . $registro_banco['horas'] . "</td>";
                     echo "<td class='final-semana'>" . $extra . "</td>";
+                    echo "<td class='final-semana'>" . $negativa . "</td>";
                     echo '</tr>';
 
                     $totHora = $totHora + $extra;
@@ -85,6 +111,7 @@ function calculadorHoras($hora,$data)
                     echo '<td>' . $registro_banco["saida"] . '</td>';
                     echo '<td>' . $registro_banco["horas"] . '</td>';
                     echo '<td>' . $extra . '</td>';
+                    echo "<td>" . $negativa . "</td>";
                     echo '</tr>';
 
                     $totHora = $totHora + $extra;
@@ -94,10 +121,11 @@ function calculadorHoras($hora,$data)
             {
                 echo '<tr>';
                 echo '<td>' . $dia_com_zeros . '</td>';
-                echo '<td>-</td>';
-                echo '<td>-</td>';
-                echo '<td>-</td>';
-                echo '<td>-</td>';
+                echo '<td> -- : -- </td>';
+                echo '<td> -- : -- </td>';
+                echo '<td>  </td>';
+                echo '<td>  </td>';
+                echo '<td>  </td>';
                 echo '</tr>';
             }
         }

@@ -54,10 +54,57 @@
         $equipe = mysqli_escape_string($conn, $_POST['equipe']);
         $desc = mysqli_escape_string($conn, $_POST['desc']);
 
+        // HORAS NEGATIVAS;
+
         if (empty($hr_entrada) or empty($hr_saida) or empty($local) or empty($equipe) or empty($desc)) 
         {
-            echo '<script>alert("Preencha os campos!")</script>'; 
-            echo "<script>window.location.href = '../../../html/home/function/bater-ponto-html.php'</script>"; 
+            // Definindo o dia negativo; 
+            date_default_timezone_set('America/Sao_Paulo');
+            $data = date('d-m-Y');
+
+            $dia = dia_semana($data);
+
+            if ($dia == 5)
+            {
+                $let = -8;
+                $const = true;
+            }
+            elseif ($dia == 6 or $dia == 7)
+            {
+                $const = false;
+            }
+            else
+            {
+                $let = -9;
+                $const = true;
+            }
+
+            if ($const == false) // SÁBADO OU DOMINGO;
+            {
+                echo '<script>alert("Não é possivel gerar horas negativas em finais de semana!!")</script>';
+                echo "<script>window.location.href = '../../../html/home/home.php'</script>"; 
+            }      
+            }
+            else
+            {
+                $sql = "INSERT INTO folha VALUES (DEFAULT,'$data','--:--','--:--','null','null','null',$let,$_SESSION[id])";
+
+                $resul = mysqli_query($conn, $sql);
+
+                if (!$resul)
+                {
+                    echo '<script>alert("Erro ao salvar dados no banco, tente novamente")</script>';
+                    echo "<script>window.location.href = '../../html/home/function/bater-ponto.php'</script>"; 
+
+                } 
+                else
+                {
+                    mysqli_close($conn); // fechando conexão;
+
+                    echo '<script>alert("Salvo com sucesso!")</script>';
+                    echo "<script>window.location.href = '../../../html/home/home.php'</script>"; 
+                }      
+            }  
         }
         else
         {
@@ -103,7 +150,14 @@
                 }
                 else // DIAS UTIEIS
                 {
-                    $hora_extra = ($time_saida - $time_entrada - 3600) / 3600;
+                    $hr = $time_saida - $time_entrada;
+
+                    if ($hr > (3600 * 4))
+                    {
+                        $hr = $hr - 3600;
+                    }
+
+                    $hora_extra = ($hr / 3600);
                 }
                 
                 // Add dados do ponto no banco;
@@ -127,7 +181,6 @@
             }
               
         }
-    }
 ?>
 </body>
 </html>
