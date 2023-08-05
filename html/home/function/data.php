@@ -58,11 +58,12 @@ function calculadorHoras($hora,$data)
             $registros_banco[$dia] = $row; // Armazena o registro do dia no array usando o dia como chave
         }
         
-        $totHora = 0;
+        $hourExtra = 0;
+        $negative = 0;
         
          // Exibir os registros da tabela para cada dia do mês
          for ($i = 1; $i <= 30; $i++) 
-         {
+        {
             $dia_com_zeros = sprintf("%02d", $i);
             $registro_banco = isset($registros_banco[$dia_com_zeros]) ? $registros_banco[$dia_com_zeros] : null;  
 
@@ -101,7 +102,8 @@ function calculadorHoras($hora,$data)
                     echo "<td class='final-semana'>" . $negativa . "</td>";
                     echo '</tr>';
 
-                    $totHora = $totHora + $extra;
+                    $hourExtra = $hourExtra + $extra;
+                    $negative = $negative + $negativa;
                 } 
                 else 
                 {
@@ -114,7 +116,8 @@ function calculadorHoras($hora,$data)
                     echo "<td>" . $negativa . "</td>";
                     echo '</tr>';
 
-                    $totHora = $totHora + $extra;
+                    $hourExtra = $hourExtra + $extra;
+                    $negative = $negative + $negativa;
                 }
             } 
             else
@@ -148,6 +151,7 @@ function calculadorHoras($hora,$data)
             echo '<h2 class="msg-vazio">Sem horas!</h2>';
         }
 
+        $totHora = $hourExtra + $negative;
         $_SESSION['tot-hora'] = $totHora;
     }
     

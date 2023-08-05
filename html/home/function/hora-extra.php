@@ -24,7 +24,8 @@
         {
             var conteudo = document.getElementById('conteudo-' + iteracao);
             var header = document.getElementById('header-' + iteracao);
-            var hora = document.getElementById('hora-' + iteracao);
+            var extra = document.getElementById('extra-' + iteracao);
+            var negativa = document.getElementById('negativa-' + iteracao);
             var icone = document.getElementById(iteracao);
 
             if (conteudo.style.display == 'flex') 
@@ -38,7 +39,8 @@
                 header.style.borderRadius = '12px 12px 0px 0px';
                 conteudo.style.height = '450px';
                 conteudo.style.display = 'flex';
-                hora.style.color = 'green';
+                extra.style.color = 'green';
+                negativa.style.color = 'red';
                 icone.textContent = 'expand_less';
             }
         }
@@ -54,7 +56,9 @@
 
             $result = mysqli_query($conn, $sql);
 
-            $tot_horas = 0;
+            $extra = 0;
+            $negativa = 0;
+            $hora_negativa = 0;
 
             if (mysqli_num_rows($result) > 0)
             {
@@ -70,20 +74,50 @@
                     if ($mes_atual == $mes_banco)
                     {
                         // pegando a data do banco para recalcuular o valor da hora;
-                    
-                        $dia = dia_semana($dados['dia']);
 
-                        if ($dia != 5 and $dia != 6 and $dia != 7)   // SE TRABALHAR NOS DIAS UTEIS
+                        $dia = dia_semana($dados['dia']);
+ 
+                        if ($dados['horas'] < 0)
                         {
-                            $hora_extra = $dados['horas'] - 9;
+                            $hr = $dados['horas'];
+                            $hora_negativa = $dados['horas'];
+                            $hora_extra = 0;
+                        }
+                        elseif ($dia != 5 and $dia != 6 and $dia != 7)   // SE TRABALHAR NOS DIAS UTEIS
+                        {
+                            $hr = $dados['horas'] - 9;
+
+                            if ($hr < 0)
+                            {
+                                $hora_negativa = $hr;
+                                $hora_extra = 0;
+                            }
+                            else
+                            {
+                                $hora_negativa = 0;
+                                $hora_extra = $hr;
+                            }
                         }
                         elseif ($dia == 5) // SE TRABALHAR NA SEXTA
                         {
-                            $hora_extra = $dados['horas'] - 8;
+                            $hr = $dados['horas'] - 8;
+
+                            if ($hr < 0)
+                            {
+                                $hora_negativa = $hr;
+                                $hora_extra = 0;
+                            }
+                            else
+                            {
+                                $hr = 0;
+                                $hora_negativa = 0;
+                                $hora_extra = $hr;
+                            }
                         }
                         else // FINAIS DE SEMANA
                         {
                             $hora_extra = $dados['horas'];
+                            $hora_negativa = 0;
                         }
 
                         echo '
@@ -95,9 +129,9 @@
                     
                             <div id="conteudo-'.$dados['cod'].'" class="box-conteudo-hora-extra">
                     
-                                <p class="p-hora-extra">Hora de entrada: '.$dados['entrada'].'</p>
+                                <p class="p-hora-extra">Hora da entrada: '.$dados['entrada'].'</p>
                     
-                                <p class="p-hora-extra">Hora de entrada: '.$dados['saida'].'</p>
+                                <p class="p-hora-extra">Hora dea saída: '.$dados['saida'].'</p>
                     
                                 <p class="p-hora-extra">Atividade: '.$dados['atividade'].'</p>
                     
@@ -105,15 +139,19 @@
                     
                                 <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
 
-                                <p id="hora-'.$dados['cod'].'" class="p-hora-extra">Horas ganha: '.$hora_extra.'</p>
+                                <p id="extra-'.$dados['cod'].'" class="p-hora-extra">Horas ganha: '. $hora_extra.'</p>
+
+                                <p id="negativa-'.$dados['cod'].'" class="p-hora-extra">Horas negativas: '. $hora_negativa.'</p>
                             </div>
                         </div>';
 
-                        $tot_horas += $hora_extra;
+                        $extra = $extra + $hora_extra;
+                        $negativa = $negativa + $hora_negativa;
                         $temHora = true;
                     }
                 }
                 
+                $tot_horas = $extra + $negativa;
                 $_SESSION['totHoras'] = $tot_horas;
 
                 if ($tot_horas == 0)
