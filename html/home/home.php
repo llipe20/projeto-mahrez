@@ -64,7 +64,10 @@
     </main>
     <footer class="box-rodape">
 
-        <img id="logo" src="../imagem/logo.png" alt="logo-direitos-humanos">
+        <div>
+            <h1 class="footer-title">Mahrez</h1>
+            <h3 id="sub" class="footer-title">Projeto Pessoal</h3>
+        </div>
 
         <div class="box-link">
             <a class="link-rodape" href="https://instagram.com/https_llpe" target="_blank">
