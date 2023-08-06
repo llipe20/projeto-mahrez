@@ -81,7 +81,8 @@
 .box-header-fixo {  /* CAIXA DE TOT HORA NA PAG DE HORA EXTRA*/
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     min-width: 100vw;
     height: 120px;
     margin: 0px;

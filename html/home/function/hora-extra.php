@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -121,33 +122,36 @@
                         }
 
                         echo '
-                        <div class="box-box-hora-extra">
-                            <header id="header-'.$dados['cod'].'" class="box-header-hora-extra">
-                                <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
-                                <span id="'.$dados['cod'].'" class="material-icons">expand_more</span>
-                            </header>
-                    
-                            <div id="conteudo-'.$dados['cod'].'" class="box-conteudo-hora-extra">
-                    
-                                <p class="p-hora-extra">Hora da entrada: '.$dados['entrada'].'</p>
-                    
-                                <p class="p-hora-extra">Hora dea saída: '.$dados['saida'].'</p>
-                    
-                                <p class="p-hora-extra">Atividade: '.$dados['atividade'].'</p>
-                    
-                                <p class="p-hora-extra">Equipe: '.$dados['equipe'].'</p>
-                    
-                                <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
+                            <div class="box-box-hora-extra">
 
-                                <p id="extra-'.$dados['cod'].'" class="p-hora-extra">Horas ganha: '. $hora_extra.'</p>
+                                <header id="header-'.$dados['cod'].'" class="box-header-hora-extra">
 
-                                <p id="negativa-'.$dados['cod'].'" class="p-hora-extra">Horas negativas: '. $hora_negativa.'</p>
-                            </div>
-                        </div>';
+                                    <h2 class="titulo">'.semana(dia_semana($dados['dia'])).' - '.$data_banco.'</h2>
+
+                                    <span id="'.$dados['cod'].'" class="material-icons">expand_more</span>
+
+                                </header>
+                    
+                                <div id="conteudo-'.$dados['cod'].'" class="box-conteudo-hora-extra">
+                    
+                                    <p class="p-hora-extra">Hora da entrada: '.$dados['entrada'].'</p>
+                        
+                                    <p class="p-hora-extra">Hora dea saída: '.$dados['saida'].'</p>
+                        
+                                    <p class="p-hora-extra">Atividade: '.$dados['atividade'].'</p>
+                        
+                                    <p class="p-hora-extra">Equipe: '.$dados['equipe'].'</p>
+                        
+                                    <p class="p-hora-extra">Descrição: '.$dados['descricao'].'</p>
+
+                                    <p id="extra-'.$dados['cod'].'" class="p-hora-extra">Horas ganha: '. $hora_extra.'</p>
+
+                                    <p id="negativa-'.$dados['cod'].'" class="p-hora-extra">Horas negativas: '. $hora_negativa.'</p>
+                                </div>
+                            </div>';
 
                         $extra = $extra + $hora_extra;
                         $negativa = $negativa + $hora_negativa;
-                        $temHora = true;
                     }
                 }
                 
@@ -178,15 +182,10 @@
             </span>
 
             <div class="min-box-header-fixo">
-
-<!-- INPUT -->  
-                <?php echo '
-                        <form id="form1" action="" method="POST">
-
-                            <input id="output" name="output" class="input-titulo" type="text" value="'. $_SESSION['mes'].'" oninput="document.getElementById(\'form1\').submit();" disabled>
-
-                        </form>';
-                ?>
+                
+                <h2 class="titulo">
+                    <?php echo  $_SESSION['mes']?>
+                </h2>
         
                 <h2 class="titulo">
                     <?php 
@@ -208,10 +207,10 @@
         </div>
 
         <div class="box-main-pai">
-
             <?php 
                 $month = 8;
-                catador_hora_extras($_SESSION['id'], $month);?>
+                catador_hora_extras($_SESSION['id'], $month);
+            ?>
         </div>
 
         <a id="voltar-hora-extra" class="link-voltar" href="../../home/home.php">Voltar</a>

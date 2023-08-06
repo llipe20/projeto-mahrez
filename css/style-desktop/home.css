@@ -165,12 +165,12 @@ h2 { /* Ola, seja bem vindo */
     border-left: 2px solid #4755937c;
     height: 50px;
     width: auto;
-    padding: 25px 25px 25px 30px;
+    padding: 25px 25px 25px 35px;
 }
 
 .link-rodape {
     font: bolder 0.90em var(--font-style);
-    color: #4755937c;
+    color: white;
     text-decoration: none;
     padding-bottom: 10px;
 }
@@ -179,12 +179,4 @@ h2 { /* Ola, seja bem vindo */
     height: 100px;
     width: 100px;
     opacity: 30%;
-}
-
-.footer-title {
-    color: #4755937c;
-}
-
-#sub {
-    font-family: var(--font-style);
 }
