@@ -1,14 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../../../java-script/function-button.js"></script>
-</head>
-<body>
-    <?php  // CODIGO DE PROCESSAMENTO PARA SALVAR OS DADOS DO PONTO NO BANCO 
+<?php  // CODIGO DE PROCESSAMENTO PARA SALVAR OS DADOS DO PONTO NO BANCO 
 
     include_once '../../conexao.php';
     session_start();
@@ -56,12 +47,11 @@
 
         // HORAS NEGATIVAS;
 
-        if (empty($hr_entrada) or empty($hr_saida) or empty($local) or empty($equipe) or empty($desc)) 
+        if (empty($hr_entrada) and empty($hr_saida) and empty($local) and empty($equipe) and empty($desc)) 
         {
             // Definindo o dia negativo; 
             date_default_timezone_set('America/Sao_Paulo');
             $data = date('d-m-Y');
-
             $dia = dia_semana($data);
 
             if ($dia == 5)
@@ -83,8 +73,7 @@
             {
                 echo '<script>alert("Não é possivel gerar horas negativas em finais de semana!!")</script>';
                 echo "<script>window.location.href = '../../../html/home/home.php'</script>"; 
-            }      
-            }
+            }     
             else
             {
                 $sql = "INSERT INTO folha VALUES (DEFAULT,'$data','--:--','--:--','null','null','null',$let,$_SESSION[id])";
@@ -94,7 +83,7 @@
                 if (!$resul)
                 {
                     echo '<script>alert("Erro ao salvar dados no banco, tente novamente")</script>';
-                    echo "<script>window.location.href = '../../html/home/function/bater-ponto.php'</script>"; 
+                    echo "<script>window.location.href = '../../html/home/function/bater-ponto-html.php'</script>"; 
 
                 } 
                 else
@@ -104,7 +93,7 @@
                     echo '<script>alert("Salvo com sucesso!")</script>';
                     echo "<script>window.location.href = '../../../html/home/home.php'</script>"; 
                 }      
-            }  
+            }
         }
         else
         {
@@ -178,9 +167,7 @@
                     echo '<script>alert("Salvo com sucesso!")</script>';
                     echo "<script>window.location.href = '../../../html/home/home.php'</script>"; 
                 }      
-            }
-              
+            }      
         }
+    }
 ?>
-</body>
-</html>

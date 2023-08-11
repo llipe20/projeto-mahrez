@@ -28,13 +28,13 @@
                     <!-- HORA DE ENTRADA -->
                     <div class="box-time">
                         <label for="entrada">Hora de entrada:</label>
-                        <input class="input-time" id="entrada" type="time" name="entrada" autofocus>
+                        <input class="input-time" id="entrada" type="time" name="entrada" value="07:30" autofocus>
                     </div>
                     
                     <!-- HORA DE SAIDA -->
                     <div class="box-time">
                         <label for="saida">Hora de saida:</label>
-                        <input class="input-time" id="saida" type="time" name="saida">
+                        <input class="input-time" id="saida" type="time" name="saida" value="17:30">
                     </div>
                     
                     <!-- LOCAL DE TRABALHO -->
@@ -63,9 +63,6 @@
                 </form>
             </div>
         </div>
-        <dialog class="">
-            <p id="paragrafo">OIIIIII</p>
-        </dialog>
     </div>
     <script src="../../../java-script/function-button.js"></script>
 </body>

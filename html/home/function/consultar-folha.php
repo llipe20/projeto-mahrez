@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <script src="../../../java-script/function-button.js"></script>
-    <title>Document</title>
+    <title>Consultar folha</title>
 </head>
 <body id="folha">
     <?php include_once './data.php'; verificar_login(); ?>
